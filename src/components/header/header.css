@@ -1,0 +1,174 @@
+/* header-mobile */
+
+.header-nav-desk{
+    display: none;
+}
+
+.header-mobile {
+    width: 100%;
+    padding: 0.5rem 1rem;
+
+}
+
+
+
+.header-mobile-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header-logo {
+    width: 10%;
+    cursor: pointer;
+}
+
+.header-menu {
+    cursor: pointer;
+    transition: scale 0.3s ease;
+}
+
+.header-menu:active {
+    scale: 0.95;
+}
+
+
+
+/* Menu-header-mobile */
+
+.menu {
+
+    border: 3px solid black;
+    width: 80%;
+    
+    border-radius: 50px 10px 10px 50px;
+    background-color: var(--background);
+
+    position: absolute;
+    top: 2px;
+    right: 2px;
+
+    transform: translateX(150%);
+    transition: transform 0.4s ease;
+
+}
+
+.menu-open {
+    transform: translateX(0);
+}
+
+
+.menu-cerrar{
+    display: flex;
+    justify-content: end;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.menu-ul {
+    display: flex;
+    width: 100%;
+    height: 98dvh;    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+
+.menu-li {
+    cursor: pointer;
+    text-align: end;
+    padding-bottom: 1rem;
+    border-bottom: 0.3px solid var(--primary);
+    font-size: 7.5vw;
+    transition: scale 0.4s ease;
+
+
+}
+
+
+.menu-li:active {
+    scale: 0.95;
+}
+
+
+.menu-privacy {
+    line-height: 1;
+    cursor: pointer;
+    transition: scale 0.4s ease;
+
+}
+
+
+.menu-privacy:active {
+    scale: 0.95;
+}
+
+
+.menu-rrss{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 2rem 1.2rem;
+}
+
+
+
+@media (min-width: 1023px) {
+
+
+    .menu, .header-mobile-nav, .blur-overlay{
+        display: none;
+    }
+    
+
+
+    .header-nav-desk{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.3rem;
+        gap: 7rem;
+    }
+
+    .header-desk-ul{
+        display: flex;
+        gap: 2rem;
+
+    }
+
+    .header-desk-li{
+        cursor: pointer;
+
+    }
+
+
+
+    .desk-dropdown {
+        position: fixed;
+        top: 3rem;
+        left: 0;
+        background: var(--background);
+        width: 100%;
+      display: flex;
+      flex-direction: column;
+      
+      
+        padding: 12px 0;
+        z-index: 20;
+      }
+      
+      .desk-dropdown li {
+       padding: 0.5rem;
+       text-align: center;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      
+      .desk-dropdown li:hover {
+        background: var(--background);
+      }
+      
+}

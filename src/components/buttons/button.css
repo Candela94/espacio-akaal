@@ -1,0 +1,28 @@
+.btn {
+    border: none;
+    background: transparent;
+    padding: 1.2rem 1rem;
+}
+
+.btn-primary {
+
+    background-color: var(--primary);
+    color: var(--background);
+    border-radius: 50px;
+
+}
+
+
+.btn-secondary {
+    background-color: rgba(97, 37, 62, 0.3);
+
+    color: var(--primary);
+    border-radius: 50px;
+
+}
+
+.btn-no-outlined{
+    color: var(--primary);
+    border-bottom: 0.3px solid var(--primary);
+    padding: 0.5rem 0;
+}

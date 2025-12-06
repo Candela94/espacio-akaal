@@ -1,0 +1,63 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+:root{
+
+    font-size: 14px;
+    font-family: poppins;
+    --primary: #61253E;
+    --background:#F5EBDE;
+    --text: #303030;
+
+
+
+    --border-width: 0.3px;
+    --border-style: solid;
+    --border-color:rgba(97, 37, 62, 0.3);
+
+    --border: var(--border-width)var(--border-style) var(--border-color);
+    
+
+}
+
+
+h1, h2, h3, h4, h5, h6 , body{
+    color: var(--primary);
+    font-family: poppins;
+}
+
+
+body{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100dvh;
+    color: var(--primary);
+    background-color: var(--background);
+
+    font-family: poppins;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+button{
+    font-family: poppins;
+}
+
+
+
+li{
+    list-style: none;
+}
