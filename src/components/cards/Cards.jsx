@@ -23,29 +23,49 @@ export const ProductCard = () => {
 
 
 
+
+  
+  
+  
+
 export const CardInicio = ({ 
     children, 
     buttonText, 
-    buttonIcon, 
-    to // <--- ruta a donde debe ir la card
+    to 
 }) => {
 
     return (
-        <div className="card-inicio">
+        <NavLink to={to} className="card-inicio card-clickable">
             <p className="card-text">{children}</p>
 
             <Button
-                as={NavLink}   // <-- convierte el botón en un enlace
-                to={to}        // <-- ruta recibida por props
+                as="div"             
                 icon={<MdOutlineNorthEast/>}
                 iconPosition="right"
                 variant="noOutlined"
+                className='btn-icon-only'
             >
                 {buttonText}
             </Button>
-        </div>
+        </NavLink>
     );
 };
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
 
 
 

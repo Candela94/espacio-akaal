@@ -2,6 +2,7 @@
     border: none;
     background: transparent;
     padding: 1.2rem 1rem;
+    
 }
 
 .btn-primary {
@@ -23,6 +24,6 @@
 
 .btn-no-outlined{
     color: var(--primary);
-    border-bottom: 0.3px solid var(--primary);
+    /* border-bottom: var(--border); */
     padding: 0.5rem 0;
 }
