@@ -24,14 +24,14 @@ export const ProductCard = () => {
 
 
 
-  
-  
-  
 
-export const CardInicio = ({ 
-    children, 
-    buttonText, 
-    to 
+
+
+
+export const CardInicio = ({
+    children,
+    buttonText,
+    to
 }) => {
 
     return (
@@ -39,8 +39,8 @@ export const CardInicio = ({
             <p className="card-text">{children}</p>
 
             <Button
-                as="div"             
-                icon={<MdOutlineNorthEast/>}
+                as="div"
+                icon={<MdOutlineNorthEast />}
                 iconPosition="right"
                 variant="noOutlined"
                 className='btn-icon-only'
@@ -50,21 +50,98 @@ export const CardInicio = ({
         </NavLink>
     );
 };
-  
-  
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+export const CardViajes = ({
+    icon,
+    title,
+    description,
+    totalSteps,
+    currentStep,
+    onStepClick,
+    onNextClick
+}) => {
+    return (
+        
+        <div className="card-viajes">
+
+
+            <div className="viajes-icon">{icon}</div>
+
+            <div className="viajes-texto">
+                <h1 className="viajes-h1">{title}</h1>
+                <p className="viajes-description">{description}</p>
+            </div>
+
+
+
+            <div className="viajes-footer">
+                {/* Indicadores */}
+                <div className="step-indicators">
+                    {Array.from({ length: totalSteps }).map((_, index) => (
+                        <span
+                            key={index}
+                            className={`step-dot ${index === currentStep ? 'active' : ''}`}
+                            onClick={() => onStepClick(index)}
+                        />
+                    ))}
+                </div>
+
+                {/* Botón "SIG." */}
+                <Button variant='noOutlined' onClick={onNextClick}>
+                    SIG.
+                </Button>
+
+            </div>
+        </div>
+    );
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

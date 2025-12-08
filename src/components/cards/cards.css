@@ -43,8 +43,10 @@
 
 
 
-
+/* -------------------- */
 /* Card inicio */
+/* -------------------- */
+
 
 .card-inicio {
     padding: 1rem;
@@ -58,6 +60,77 @@
 .card-text {
     width: 70%;
 }
+
+
+
+
+
+
+
+
+/* -------------------- */
+/* Card viajes */
+/* -------------------- */
+
+
+
+.card-viajes{
+    border: var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+
+
+
+
+
+.viajes-texto{
+    /* background-color: pink; */
+    width: 100%;
+    margin-top: 1rem;
+}
+
+
+.viajes-icon{
+    font-size: 4rem;
+}
+
+
+.step-indicators {
+    display: flex;
+    gap: 0.3rem;
+    justify-content: center;
+  }
+  
+  .step-dot {
+    width: 5px;
+    height: 5px;
+    border-radius:50px;
+    background-color: #d6b9c4;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .step-dot.active {
+    width: 16px;
+    background-color: #671c3b;
+  }
+
+
+  .viajes-footer{
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+
 
 
 
@@ -94,6 +167,7 @@
 
 
 @media (min-width: 600px) {
+
 
     .card-inicio {
         display: flex;

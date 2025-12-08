@@ -1,0 +1,44 @@
+
+
+
+.viajes{
+    width: 100%;
+    min-height: 100dvh;
+    position: relative;
+}
+.viajes-imagen{
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-img);
+    padding: 0.3rem;
+    opacity: 0.9;
+    filter: brightness(0.8);
+
+}
+
+
+.viajes-intro{
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.viajes-nombre{
+    color: var(--background);
+    font-size: 15vw;
+}
+
+
+
+.viajes-cards{
+
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

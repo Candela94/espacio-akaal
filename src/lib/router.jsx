@@ -21,13 +21,13 @@ const router = createBrowserRouter([{
 
         {
             index:true,
-            element:<App /> 
+            element:<Inicio /> 
         },
 
-        {
-            path: "/inicio",
-            element: <Inicio />
-        },
+       
+       
+       
+       
 
         {
             path: "/espacio-akaal",

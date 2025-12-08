@@ -29,3 +29,20 @@ export const ImgContainer = ({ children }) => {
         </>
     );
 }
+
+
+
+
+export const StepIndicators = ({ totalSteps, currentStep, onStepClick }) => {
+    return (
+      <div className="step-indicators">
+        {Array.from({ length: totalSteps }).map((_, index) => (
+          <span
+            key={index}
+            className={`step-dot ${index === currentStep ? 'active' : ''}`}
+            onClick={() => onStepClick(index)}
+          />
+        ))}
+      </div>
+    );
+  };
