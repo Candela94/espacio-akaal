@@ -3,6 +3,11 @@ import { ImgContainer } from '../../components/components/Components';
 import { useState } from 'react';
 import { CardViajes } from '../../components/cards/Cards';
 import { FaSuitcaseRolling, FaMapMarkedAlt, FaPlaneDeparture } from "react-icons/fa";
+import { ViajesGaleria } from '../../components/cards/Cards';
+import { GaleriaSlider } from '../../components/galeria/GaleriaSlider';
+import { ViajesAnteriores } from '../../db/imagenes';
+import { Button } from '../../components/buttons/Button';
+import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
 
 const AkaalViajes = () => {
   const steps = [
@@ -23,11 +28,31 @@ const AkaalViajes = () => {
     },
   ];
 
+  const anteriores = [
+    { nombre: 'AZORES', portada: '/img/azores.jpg' }
+  ];
+
   const [currentStep, setCurrentStep] = useState(0);
+  const [showGaleria, setShowGaleria] = useState(false);
+  const [imagenesSeleccionadas, setImagenesSeleccionadas] = useState([]);
 
   const handleNext = () => {
-    setCurrentStep((prev) => (prev + 1) % steps.length); // Cicla los pasos
+    setCurrentStep((prev) => (prev + 1) % steps.length);
   };
+
+  const abrirGaleria = () => {
+    console.log('Click en galería!');
+
+    if (ViajesAnteriores && ViajesAnteriores.length > 0 && ViajesAnteriores[0].imagenes) {
+      setImagenesSeleccionadas(ViajesAnteriores[0].imagenes);
+      setShowGaleria(true);
+      console.log('Galería abierta');
+    } else {
+      console.error('Error: Viajes no tiene el formato esperado');
+    }
+  };
+
+  const viajeActivo = anteriores[0]?.nombre || "este viaje";
 
   return (
     <>
@@ -37,7 +62,14 @@ const AkaalViajes = () => {
         </ImgContainer>
 
         <div className="viajes-intro">
-          <h1 className="viajes-nombre">AZORES</h1>
+          <h1 className="viajes-nombre">{viajeActivo}</h1>
+
+          <div className="viajes-intro-buttons">
+            <Button>VER ITINERARIO</Button>
+            <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
+              RESERVA TU PLAZA
+            </WhatsAppLink>
+          </div>
         </div>
       </section>
 
@@ -54,6 +86,28 @@ const AkaalViajes = () => {
           onNextClick={handleNext}
         />
       </section>
+
+      <section className="viajes-anteriores">
+        <h1 className="viajes-titulo-seccion">VIAJES ANTERIORES</h1>
+        <div className="viajes-galeria">
+          {anteriores.map((ant, id) => (
+            <ViajesGaleria
+              src={ant.portada}
+              nombre={ant.nombre}
+              alt={ant.nombre}
+              key={id}
+              onClick={abrirGaleria}
+            />
+          ))}
+        </div>
+      </section>
+
+      {showGaleria && (
+        <GaleriaSlider
+          imagenes={imagenesSeleccionadas}
+          onClose={() => setShowGaleria(false)}
+        />
+      )}
     </>
   );
 };

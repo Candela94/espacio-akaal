@@ -24,6 +24,8 @@
     --border: var(--border-width)var(--border-style) var(--border-color);
 
     --radius-img: 20px 8px 8px 20px;
+
+    --radius-img-volted: 8px 20px 20px 8px;
     
 
 }
@@ -55,7 +57,11 @@ a{
 
 
 button{
+
+
     font-family: poppins;
+    cursor: pointer;
+
 }
 
 

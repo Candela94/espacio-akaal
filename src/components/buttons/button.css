@@ -2,7 +2,16 @@
     border: none;
     background: transparent;
     padding: 1.2rem 1rem;
+    text-decoration: none; /* 🔥 importante para los <a> */
     
+}
+
+
+button.btn,
+a.btn {
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .btn-primary {
