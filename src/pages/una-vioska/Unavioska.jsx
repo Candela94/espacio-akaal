@@ -5,7 +5,9 @@ import { ProductCard } from '../../components/cards/Cards';
 import { AiOutlineDelete } from "react-icons/ai";
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '../../components/buttons/Button';
-import { productos } from '../../db/imagenes';
+import useFetchProductos from '../../hooks/useFetchProducts';
+
+
 
 
 const UnaVioska = () => {
@@ -14,6 +16,8 @@ const UnaVioska = () => {
     const [menu, setMenu] = useState(false);
     const [filtroActivo, setFiltroActivo] = useState("todo");
     const menuRef = useRef(null);
+
+    const productos = useFetchProductos();
 
     const toggleSeleccion = () => {
         setModoSeleccion(prev => {

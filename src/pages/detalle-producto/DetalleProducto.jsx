@@ -1,14 +1,21 @@
 import { useParams, useNavigate } from "react-router";
-import { productos } from "../../db/imagenes";
 import { motion } from 'framer-motion'
 import { useRef, useState } from "react";
 import './detalle.css'
+import useFetchProductos from '../../hooks/useFetchProducts';
+
+
+
 
 const DetalleProducto = () => {
 
+    const { pid } = useParams();
 
     const sliderRef = useRef(null);
     const [imagenActiva, setImagenActiva] = useState(0);
+
+    const productos = useFetchProductos();
+const producto = productos.find(p => p.id === Number(pid));
 
     const handleScroll = () => {
         const scrollLeft = sliderRef.current.scrollLeft;
@@ -24,12 +31,10 @@ const DetalleProducto = () => {
             behavior: "smooth",
         });
     };
-    const { pid } = useParams();
 
     const navigate = useNavigate();
 
 
-    const producto = productos.find(p => p.id === Number(pid));
 
     if (!producto) return null;
 
