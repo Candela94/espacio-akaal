@@ -22,7 +22,7 @@ export const ImgContainer = ({ children }) => {
 
         <>
 
-            <div className="imagen-container">
+            <div className="imagen-container" style={{position:'relative'}}>
                 {children}
             </div>
 

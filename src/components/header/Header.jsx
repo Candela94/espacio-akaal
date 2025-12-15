@@ -4,7 +4,7 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "react-router";
 
-export const HeaderMobile = () => {
+export const Header = () => {
 
     const [menu, setMenu] = useState(false);
     const [openDeskMenu, setOpenDeskMenu] = useState(false);
@@ -35,7 +35,7 @@ export const HeaderMobile = () => {
 
                 {/* NAV MOBILE */}
                 <nav className="header-mobile-nav">
-                    <NavLink to="/inicio">
+                    <NavLink to="/">
                         <img src="/img/logo-icono.png" alt="logo" className="header-logo" />
                     </NavLink>
                     <span className="header-menu" onClick={handleOpenMenu}>MENÚ</span>
@@ -163,4 +163,4 @@ export const HeaderMobile = () => {
     );
 };
 
-export const HeaderDesk = () => <></>;
+

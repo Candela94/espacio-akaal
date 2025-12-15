@@ -6,24 +6,99 @@ import { Button } from '../buttons/Button';
 import { NavLink } from 'react-router';
 import { MdOutlineNorthEast } from "react-icons/md";
 
+import { useNavigate, useLocation } from 'react-router';
 
+export const ProductCard = ({ producto, modoSeleccion, seleccionado, onSeleccionar }) => {
+    const navigate = useNavigate();
 
+    const handleClick = () => {
+        if (modoSeleccion) {
+            onSeleccionar();
+        } else {
+            navigate(`/producto/${producto.id}`);
+            state: { background: location }
 
+        }
+    };
 
-
-
-export const ProductCard = () => {
     return (
-        <div className='card'>
+        <div
+            className={`card ${seleccionado ? 'card-seleccionada' : ''}`}
+            onClick={handleClick}
+        >
             <div className="card-img-container">
-                <img src="/img/default.png" alt="default" className="card-img" /></div>
+                <img
+                    src={producto.imagen}
+                    alt={producto.nombre}
+                    className="card-img"
+                />
+            </div>
+
             <div className="card-info">
-                <h4 className="card-name">Nombre</h4>
-                <h4 className="prize">€</h4>
+                <p className="card-name">{producto.nombre}</p>
+                <p className="prize">{producto.precio} €</p>
             </div>
         </div>
     );
-}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -70,7 +145,7 @@ export const CardViajes = ({
     onNextClick
 }) => {
     return (
-        
+
         <div className="card-viajes">
 
 
@@ -110,19 +185,19 @@ export const CardViajes = ({
 
 
 // ViajesGaleria Component (va en Cards.jsx)
-export const ViajesGaleria = ({nombre, src, onClick}) => {
-    return (           
-        <div 
-            className="viajes-container" 
-            onClick={onClick} 
-            style={{cursor: 'pointer'}}
+export const ViajesGaleria = ({ nombre, src, onClick }) => {
+    return (
+        <div
+            className="viajes-container"
+            onClick={onClick}
+            style={{ cursor: 'pointer' }}
         >
             <img src={src} alt={nombre} className="viajes-img" />
             <div className="viajes-info">
                 <h2 className="viajes-titulo">{nombre}</h2>
             </div>
-        </div>                  
-    ); 
+        </div>
+    );
 };
 
 

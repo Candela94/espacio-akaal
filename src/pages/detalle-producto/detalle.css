@@ -1,0 +1,89 @@
+
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--background);
+    width: 96%;
+    height: 96dvh;
+    
+   
+    border-radius: var(--radius-img);
+    position: relative;
+}
+
+.cerrar {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 99;
+}
+
+
+
+
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 20px 8px 0 0;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+}
+
+.slide-img {
+    width: 100%;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    object-fit: cover;
+    border-radius: 20px 8px 0 0;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: width 0.3s;
+}
+
+.dot.active {
+    width: 18px;
+    border-radius: 4.5px;
+    background-color: var(--primary);
+}
+
+
+
+.producto-info{
+    padding: 1rem;
+}

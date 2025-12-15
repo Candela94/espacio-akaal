@@ -2,7 +2,6 @@ import { CardInicio } from "../../components/cards/Cards";
 import { Button } from "../../components/buttons/Button";
 import './inicio.css';
 import { ImgContainer } from "../../components/components/Components";
-import { HeaderMobile } from "../../components/header/Header";
 import { MdOutlineNorthEast } from "react-icons/md";
 import { NavLink } from "react-router";
 import { motion } from "framer-motion";
@@ -10,7 +9,6 @@ import { motion } from "framer-motion";
 const Inicio = () => {
     return (
         <>
-            <HeaderMobile />
             <ImgContainer>
                 <img src="/img/inicio.jpg" alt="inicio" className="inicio-imagen" />
             </ImgContainer>

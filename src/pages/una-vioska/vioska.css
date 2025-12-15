@@ -1,0 +1,119 @@
+.vioska-portada {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-img);
+    opacity: 0.9;
+    filter: brightness(0.8);
+    padding: 0.2rem;
+}
+
+
+.vioska-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    width: 90%;
+    padding: 1rem;
+
+}
+
+.vioska-titulo {
+    color: var(--background);
+    font-size: 9vw;
+
+}
+
+
+
+/* galería */
+
+.vioska-galeria {
+    width: 100%;
+    min-height: 100dvh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.galeria-titulo {
+    margin-top: 3rem;
+}
+
+.vioska-seleccionar,
+.cantidad-productos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.filtros{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: end;
+    position: relative;
+    display: inline-block;
+     
+}
+
+.filtros-texto{
+    width: fit-content;
+    cursor: pointer;
+}
+
+
+   
+  
+  .filtro-ul {
+    position: absolute;
+    width: 30%;
+    border-radius: 20px;
+    top: 100%;
+    left: 0;
+    background: var(--background);
+    padding: 0.5rem;
+    border: var(--border);
+    list-style: none;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(126, 110, 110, 0.1);
+  }
+  
+  .filtro-li {
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .filtro-li:hover {
+    background: #f0f0f0;
+  }
+  
+
+
+
+
+
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+
+.pedido-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--background);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+}
