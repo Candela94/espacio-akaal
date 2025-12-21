@@ -44,13 +44,16 @@
     margin-top: 3rem;
 }
 
-.vioska-seleccionar,
+
 .cantidad-productos {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
+.vioska-seleccionar{
+    cursor: pointer;
+}
 
 .filtros{
     display: flex;

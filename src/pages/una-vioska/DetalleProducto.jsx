@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router";
 import { motion } from 'framer-motion'
 import { useRef, useState } from "react";
-import './detalle.css'
+import './css/detalle.css'
 import useFetchProductos from '../../hooks/useFetchProducts';
 
 
@@ -71,7 +71,7 @@ const producto = productos.find(p => p.id === Number(pid));
                 <div className="producto-info">
                     <h2>{producto.nombre}</h2>
                     <p>{producto.descripcion}</p>
-                    <p>{producto.precio} €</p>
+                    <p>{producto.precio} </p>
                 </div>
 
             </motion.div>

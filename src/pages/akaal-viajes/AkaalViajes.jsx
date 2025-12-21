@@ -8,21 +8,32 @@ import { GaleriaSlider } from '../../components/galeria/GaleriaSlider';
 import { ViajesAnteriores } from '../../db/imagenes';
 import { Button } from '../../components/buttons/Button';
 import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
+import { Backpack, NotebookText, Clover, Heart } from 'lucide-react';
+
+
 
 const AkaalViajes = () => {
+
+  
   const steps = [
     {
-      icon: <FaSuitcaseRolling />,
+      icon: <Backpack strokeWidth={1} size={64}/>,
       title: 'Prepárate',
       description: 'Haz tu maleta, revisa tu pasaporte y déjalo todo listo.',
     },
+
     {
-      icon: <FaMapMarkedAlt />,
+      icon: <Clover strokeWidth={1} size={64}/>,
+      title: 'Comunidad',
+      description: 'Conoce a nuevas amistades únicas.',
+    },
+    {
+      icon: <NotebookText strokeWidth={1} size={64}/>,
       title: 'Itinerario',
       description: 'Te explicamos qué vamos a hacer cada día del viaje.',
     },
     {
-      icon: <FaPlaneDeparture />,
+      icon: <Heart strokeWidth={1} size={64}/>,
       title: '¡A volar!',
       description: 'Nos vamos de aventura, ¡disfruta el camino!',
     },

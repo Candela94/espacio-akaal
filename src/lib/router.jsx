@@ -9,7 +9,8 @@ import AkaalRetiros from '../pages/akaal-retiros/AkaalRetiros'
 import AkaalViajes from '../pages/akaal-viajes/AkaalViajes'
 import UnaVioska from "../pages/una-vioska/Unavioska";
 import About from "../pages/acerca-de/About";
-import DetalleProducto from "../pages/detalle-producto/DetalleProducto";
+import DetalleProducto from "../pages/una-vioska/DetalleProducto";
+import ResumenPeido from "../pages/una-vioska/ResumenPedido";
 
 
 
@@ -62,7 +63,13 @@ const router = createBrowserRouter([{
         {
             path:'/producto/:pid',
             element:<DetalleProducto />
+        },
+
+        {
+            path:'/resumen-producto',
+            element:<ResumenPeido />
         }
+        
         
 
         

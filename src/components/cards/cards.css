@@ -1,3 +1,7 @@
+
+
+/* card productos */
+
 .card {
 
     display: flex;
@@ -53,6 +57,48 @@
 }
 
 
+/* -------------------- */
+/* Card resumen */
+/* -------------------- */
+
+.card-pedido{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem;
+    border-bottom: var(--border);
+}
+
+.imagen-info{
+    display: flex;
+    align-items: center;
+    gap:2rem
+}
+
+.card-img-container-resumen{
+    width: 130px;
+}
+
+.card-img-resumen{
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.card-info-resumen{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.prize{
+    font-size: 1.3rem;
+}
+
+
+
+
 
 /* -------------------- */
 /* Card inicio */
@@ -92,7 +138,7 @@
     align-items: center;
     width: 60%;
     border-radius: 4px;
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 
@@ -103,7 +149,8 @@
 .viajes-texto{
     /* background-color: pink; */
     width: 100%;
-    margin-top: 1rem;
+    text-align: center;
+   
 }
 
 

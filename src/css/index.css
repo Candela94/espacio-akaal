@@ -33,7 +33,7 @@
 
 h1, h2, h3, h4, h5, h6 , body{
     color: var(--primary);
-    font-family: poppins;
+    font-family: semi-bold, poppins;
 }
 
 
@@ -46,7 +46,7 @@ body{
     color: var(--primary);
     background-color: var(--background);
 
-    font-family: poppins;
+    font-family: normal, poppins;
 }
 
 a{
@@ -59,7 +59,7 @@ a{
 button{
 
 
-    font-family: poppins;
+    font-family: normal, poppins;
     cursor: pointer;
 
 }
@@ -68,4 +68,33 @@ button{
 
 li{
     list-style: none;
+}
+
+
+
+
+/* tipografias */
+
+@font-face {
+    font-family: superlight;
+    src: url('./fonts/Yaldevi-ExtraLight.ttf');
+}
+@font-face {
+    font-family: light;
+    src: url('./fonts/Yaldevi-Light.ttf');
+}
+
+@font-face {
+    font-family: medium;
+    src: url('./fonts/Yaldevi-Medium.ttf');
+}
+
+@font-face {
+    font-family: normal;
+    src: url('./fonts/Yaldevi-Regular.ttf');
+}
+
+@font-face {
+    font-family: semi-bold;
+    src: url('./fonts/Yaldevi-SemiBold.ttf');
 }

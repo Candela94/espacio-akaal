@@ -36,7 +36,7 @@ export const ProductCard = ({ producto, modoSeleccion, seleccionado, onSeleccion
 
             <div className="card-info">
                 <p className="card-name">{producto.nombre}</p>
-                <p className="prize">{producto.precio} €</p>
+                <p className="card-prize">{producto.precio} </p>
             </div>
         </div>
     );
@@ -46,63 +46,38 @@ export const ProductCard = ({ producto, modoSeleccion, seleccionado, onSeleccion
 
 
 
+export const CardPedido = ({ producto, onEliminar }) => {
 
+    return (
 
+        <div className=" card-pedido">
 
+            <div className="imagen-info">
+            <div className="card-img-container-resumen">
+                <img
+                    src={producto.imagen}
+                    alt={producto.nombre}
+                    className="card-img-resumen"
+                />
+            </div>
 
+            <div className="card-info-resumen">
+                <p className="card-name">{producto.nombre}</p>
+                <p className="prize">{producto.precio}</p>
+            </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            </div>
+                <Button
+                    variant="noOutlined"
+                    onClick={ () => onEliminar(producto.id)}
+                    className="btn-eliminar"
+                >
+                    Eliminar
+                </Button>
+            
+        </div>
+    );
+};
 
 
 
