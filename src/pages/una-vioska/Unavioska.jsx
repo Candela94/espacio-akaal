@@ -8,10 +8,63 @@ import { Button } from '../../components/buttons/Button';
 import useFetchProductos from '../../hooks/useFetchProducts';
 import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
+import {
+    Sparkles,
+    Pointer,
+    PointerOff,
+    ShoppingCart,
+    HandHeart,
+    MessageCircleMore
+} from "lucide-react";
 
+// 📝 Lista de pasos de instrucciones
+const pasosInstrucciones = [
+    {
+        icono: <Pointer strokeWidth={1} />,
+        texto: (
+            <>
+                Pulsa el botón <strong>"Seleccionar"</strong> para poder elegir las joyas que te hayan llegado al alma
+            </>
+        ),
+    },
+    {
+        icono: <PointerOff strokeWidth={1} />,
 
+        texto: (
+            <>
+                <strong>"Desactiva"</strong> para volver a vista normal.
+            </>
+        ),
 
+    },
+    {
+        icono: <ShoppingCart strokeWidth={1} />,
+        texto: (
+            <>
+                Pulsando  <strong>"Ver pedido"</strong>, verás el resumen de tu pedido
+            </>
+        ),
 
+    },
+    {
+        icono: <MessageCircleMore strokeWidth={1} />,
+        texto: (
+            <>
+                <strong>"Escribe tu nombre"</strong> para conocerte mejor y contáctanos directamente por WhatsApp para reservar tu pedido
+            </>
+        ),
+        texto: 'Desde ahí, escribe tu nombre para conocerte mejor y contáctanos directamente por WhatsApp para reservar tu pedido',
+    },
+    {
+        icono: <HandHeart strokeWidth={1} />,
+        texto: (
+            <>
+                Recuerda que todo es <strong>"100% artesanal"</strong> , por lo que te llevarás <strong>una pieza única</strong>
+            </>
+        ),
+
+    },
+];
 
 const UnaVioska = () => {
     const [modoSeleccion, setModoSeleccion] = useState(false);
@@ -23,14 +76,12 @@ const UnaVioska = () => {
     const productos = useFetchProductos();
     const navigate = useNavigate();
 
-
     const toggleSeleccion = () => {
         setModoSeleccion(prev => {
             if (prev) setSeleccionados([]);
             return !prev;
         });
     };
-
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -47,7 +98,6 @@ const UnaVioska = () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [menu]);
-
 
     const handleSeleccion = (id) => {
         if (seleccionados.includes(id)) {
@@ -70,7 +120,6 @@ const UnaVioska = () => {
         filtroActivo === "todo" ? true : producto.filtro === filtroActivo
     );
 
-
     const irAResumen = () => {
         const productosSeleccionados = productos.filter(producto =>
             seleccionados.includes(producto.id)
@@ -81,9 +130,6 @@ const UnaVioska = () => {
         });
     };
 
-
-
-
     useEffect(() => {
         if (window.location.hash === '#galeria') {
             const section = document.querySelector('.vioska-galeria');
@@ -92,12 +138,6 @@ const UnaVioska = () => {
             }
         }
     }, []);
-
-
-
-
-
-
 
     return (
         <>
@@ -108,86 +148,68 @@ const UnaVioska = () => {
                 </div>
             </ImgContainer>
 
-            <section className="vioska-galeria">
-                <h2 className="galeria-titulo">Galería de productos</h2>
-
-                <div className="modo-seleccion-container">
-  <AnimatePresence mode="wait">
-    {!modoSeleccion && (
-      <motion.p
-        className="texto-explicativo"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.3 }}
-      >
-        Puedes seleccionar tus productos favoritos haciendo clic aquí
-      </motion.p>
-    )}
-  </AnimatePresence>
-
-  <AnimatePresence mode="wait">
-    <motion.div
-      key={modoSeleccion ? 'activo' : 'inactivo'} // fuerza reinicio de animación
-      className={`vioska-seleccionar ${modoSeleccion ? 'activo' : ''}`}
-      onClick={toggleSeleccion}
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.3 }}
-    >
-      {modoSeleccion ? 'MODO SELECCIÓN ACTIVADO' : 'Pulsa aquí'}
-    </motion.div>
-  </AnimatePresence>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-              
-              
-              
-              
-              
-
-
-
-
-
-
-
-                <div className="filtros" ref={menuRef}>
-                    <p onClick={handleMenu} className="filtros-texto">FILTRAR</p>
-                    {menu && (
-                        <ul className="filtro-ul">
-                            <li className="filtro-li" onClick={() => handleFiltro("todo")}>TODO</li>
-                            <li className="filtro-li" onClick={() => handleFiltro("macrame")}>MACRAMÉ</li>
-                            <li className="filtro-li" onClick={() => handleFiltro("plata")}>PLATA</li>
-                        </ul>
-                    )}
+            <section className="vioska-instrucciones">
+                <div className="artesania">
+                    <Sparkles strokeWidth={0.7} />
+                    <h3 className="instrucciones-texto">Cada pieza está hecha a mano, con mucho mimo y dedicación.</h3>
+                    <Sparkles strokeWidth={0.7} />
                 </div>
 
-                {modoSeleccion && (
-                    <div className="cantidad-productos">
-                        <p className="texto-productos">
-                            Productos seleccionados ({seleccionados.length})
-                        </p>
-                        <AiOutlineDelete onClick={borrarSeleccion} />
+                <h4 className="instrucciones-texto">Pero antes de empezar...</h4>
+
+                <ul className="instrucciones-ul">
+                    {pasosInstrucciones.map((item, index) => (
+                        <li key={index} className="instrucciones-li">
+                            {item.icono}
+                            <p className="instrucciones-p">{item.texto}</p>
+                        </li>
+                    ))}
+                </ul>
+
+                <div className="button">
+                    <Button as="a" href="#galeria">
+                        Ver galería
+                    </Button></div>
+
+            </section>
+
+            <section id='galeria' className="vioska-galeria">
+                <h2 className="galeria-titulo">Galería de productos</h2>
+
+                <div className="galeria-header-sticky">
+                    <div className="modo-seleccion-container">
+                        <div className="seleccion-multiple-container">
+                            <p className="seleccion-titulo">
+                                {modoSeleccion
+                                    ? 'Estás en modo selección. Pulsa para volver a vista normal.'
+                                    : 'Estás en vista normal. ¿Quieres seleccionar varias piezas a la vez?'}
+                            </p>
+                            <Button onClick={toggleSeleccion}>
+                                {modoSeleccion ? 'DESACTIVAR' : 'ACTIVAR'}
+                            </Button>
+                        </div>
                     </div>
-                )}
 
+                    <div className="filtros" ref={menuRef}>
+                        <p onClick={handleMenu} className="filtros-texto">FILTRAR</p>
+                        {menu && (
+                            <ul className="filtro-ul">
+                                <li className="filtro-li" onClick={() => handleFiltro("todo")}>TODO</li>
+                                <li className="filtro-li" onClick={() => handleFiltro("macrame")}>MACRAMÉ</li>
+                                <li className="filtro-li" onClick={() => handleFiltro("plata")}>PLATA</li>
+                            </ul>
+                        )}
+                    </div>
 
-
-
-
+                    {modoSeleccion && (
+                        <div className="cantidad-productos">
+                            <p className="texto-productos">
+                                Productos seleccionados ({seleccionados.length})
+                            </p>
+                            <AiOutlineDelete onClick={borrarSeleccion} />
+                        </div>
+                    )}
+                </div>
 
 
                 <div className="productos">

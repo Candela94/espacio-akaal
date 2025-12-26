@@ -257,6 +257,17 @@
 }
 
 
+/* card horario */
+
+.card-horario{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: var(--border);
+}
+
+
 
 
 @media (min-width: 600px) {

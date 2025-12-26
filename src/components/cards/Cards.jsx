@@ -178,6 +178,26 @@ export const ViajesGaleria = ({ nombre, src, onClick }) => {
 
 
 
+// card horario 
+
+export const CardHorario = ({ nombre, hora, instructor }) => {
+    return (
+      <div className="card-horario">
+        <div>
+          <h4 className="clase">{nombre}</h4>
+          <p className="hora">{hora}</p>
+        </div>
+        <span className="instructor">{instructor}</span>
+      </div>
+    );
+  };
+  
+
+  
+
+
+
+
 
 
 

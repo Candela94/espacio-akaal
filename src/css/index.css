@@ -9,7 +9,7 @@
 
 :root{
 
-    font-size: 14px;
+    font-size: clamp(0.875rem, 1.2vw, 1.125rem); /* entre 14px y 18px aprox */
     font-family: poppins;
     --primary: #61253E;
     --background:#F5EBDE;
@@ -45,6 +45,7 @@ body{
     min-height: 100dvh;
     color: var(--primary);
     background-color: var(--background);
+    scroll-behavior: smooth;
 
     font-family: normal, poppins;
 }
@@ -71,6 +72,9 @@ li{
 }
 
 
+strong{
+    font-family: semi-bold;
+}
 
 
 /* tipografias */

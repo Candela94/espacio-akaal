@@ -52,7 +52,7 @@
     background: none;
     border: none;
     border-bottom: var(--border);
-    width: 50%;
+    width: 70%;
 }
 
 .input-nombre:focus{

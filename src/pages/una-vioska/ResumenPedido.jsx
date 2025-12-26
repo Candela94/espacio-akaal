@@ -118,7 +118,7 @@ const ResumenPedido = () => {
                 message={mensajeWhatsApp}
                 onClick={finalizarPedido}
               >
-                CONTACTAR Y HACER PEDIDO
+                RESERVAR
               </WhatsAppLink>
             </div>
           </footer>
