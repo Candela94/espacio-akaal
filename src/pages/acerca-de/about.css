@@ -1,0 +1,353 @@
+/* About Page Styles */
+.about-container {
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(97, 37, 62, 0.1), rgba(97, 37, 62, 0.2));
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 3rem;
+}
+
+.hero-content {
+    text-align: right;
+    color: var(--background);
+    max-width: 600px;
+}
+
+.hero-date {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    font-family: light, poppins;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    font-family: semi-bold, poppins;
+    color: var(--background);
+}
+
+/* Timeline Section */
+.timeline-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.timeline-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-family: semi-bold, poppins;
+}
+
+.timeline-header p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-family: normal, poppins;
+}
+
+.timeline-container {
+    position: relative;
+}
+
+.timeline-slider {
+    position: relative;
+    background: var(--primary);
+    border-radius: var(--radius-img);
+    box-shadow: 0 20px 40px rgba(97, 37, 62, 0.15);
+    overflow: hidden;
+    min-height: 500px;
+   
+}
+
+.timeline-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    padding: 1rem;
+}
+
+.timeline-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .slide-image-container{
+    width: 100%;
+    height: 40vh;
+  }
+  
+  .slide-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  .slide-text {
+  color: var(--background);
+  }
+  
+
+.slide-text-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+
+.slide-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.slide-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.slide-year {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.slide-title {
+    font-size: 1.8rem;
+    color: var(--background);
+    margin: 0;
+    font-weight: 600;
+    font-family: semi-bold, poppins;
+}
+
+.slide-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--background);
+    margin: 0;
+   
+}
+
+/* Navigation Buttons */
+.nav-button {
+    position: absolute;
+    top: 48%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--background);
+    border: none;
+ 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    color: var(--primary);
+}
+
+.nav-button:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(97, 37, 62, 0.2);
+}
+
+.nav-button.prev {
+    left: 1rem;
+}
+
+.nav-button.next {
+    right: 1rem;
+}
+
+/* Timeline Dots */
+.timeline-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translate(-50%);
+    padding-top: 1rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--background);
+    background: var(--background);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: var(--background);
+    transform: scale(1.2);
+}
+
+/* Final Section */
+.final-section {
+    padding: 4rem 2rem;
+}
+
+.final-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.final-content h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-family: semi-bold, poppins;
+}
+
+.final-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-family: normal, poppins;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-overlay {
+        padding: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .timeline-section {
+        padding: 3rem 1rem;
+    }
+    
+    .slide-content {
+        padding: 2rem;
+    }
+    
+    .slide-text-glass {
+        padding: 2rem;
+        max-width: 90%;
+    }
+    
+    .nav-button {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nav-button.prev {
+        left: 0.5rem;
+    }
+    
+    .nav-button.next {
+        right: 0.5rem;
+    }
+    
+    .final-content h2 {
+        font-size: 2rem;
+    }
+    
+    .final-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .timeline-header h2 {
+        font-size: 2rem;
+    }
+    
+    .slide-title {
+        font-size: 1.5rem;
+    }
+    
+    .slide-description {
+        font-size: 1rem;
+    }
+}

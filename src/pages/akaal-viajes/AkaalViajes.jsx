@@ -1,69 +1,129 @@
 import './viajes.css';
 import { ImgContainer } from '../../components/components/Components';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { CardViajes } from '../../components/cards/Cards';
-import { FaSuitcaseRolling, FaMapMarkedAlt, FaPlaneDeparture } from "react-icons/fa";
 import { ViajesGaleria } from '../../components/cards/Cards';
-import { GaleriaSlider } from '../../components/galeria/GaleriaSlider';
 import { ViajesAnteriores } from '../../db/imagenes';
 import { Button } from '../../components/buttons/Button';
 import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
-import { Backpack, NotebookText, Clover, Heart } from 'lucide-react';
+import { MountainSnow, Backpack, Flower, FishSymbol, Sunset, Heart } from 'lucide-react';
+import { ViajesAnterioresGallery } from '../../components/viajesAnterioresContainer/viajesAnterioresGallery';
 
 
+const AkaalViajes = () => { 
 
-const AkaalViajes = () => {
-
-  
-  const steps = [
-    {
-      icon: <Backpack strokeWidth={1} size={64}/>,
-      title: 'Prepárate',
-      description: 'Haz tu maleta, revisa tu pasaporte y déjalo todo listo.',
-    },
-
-    {
-      icon: <Clover strokeWidth={1} size={64}/>,
-      title: 'Comunidad',
-      description: 'Conoce a nuevas amistades únicas.',
-    },
-    {
-      icon: <NotebookText strokeWidth={1} size={64}/>,
-      title: 'Itinerario',
-      description: 'Te explicamos qué vamos a hacer cada día del viaje.',
-    },
-    {
-      icon: <Heart strokeWidth={1} size={64}/>,
-      title: '¡A volar!',
-      description: 'Nos vamos de aventura, ¡disfruta el camino!',
-    },
-  ];
-
-  const anteriores = [
-    { nombre: 'AZORES', portada: '/img/azores.jpg' }
-  ];
 
   const [currentStep, setCurrentStep] = useState(0);
   const [showGaleria, setShowGaleria] = useState(false);
   const [imagenesSeleccionadas, setImagenesSeleccionadas] = useState([]);
+  const [viajeActivo, setViajeActivo] = useState('AZORES');
+  const [diasRestantes, setDiasRestantes] = useState(0);
+  const scrollRef = useRef(null);
+
+
+  const steps = [
+    {
+      icon: <MountainSnow strokeWidth={1} size={58}/> ,
+      title: 'Conexión con la naturaleza',
+      description: 'Lagos volcánicos y termas naturales en el bosque y en el mar.',
+    },
+    {
+      icon: <Flower strokeWidth={1} size={58} />,
+      title: 'Yoga',
+      description: 'Respira, conecta y empieza el día en calma.',
+    },
+    {
+      icon:<Backpack strokeWidth={1} size={58}/>,
+      title: 'Senderismo',
+      description: 'Rutas sencillas entre cascadas.',
+    },
+    {
+      icon: <FishSymbol strokeWidth={1} size={58}/>,
+      title: 'Animales emblemáticos',
+      description: 'Iremos en busca de ballenas y delfines para verlos vivir en su hábitat natural.',
+    },
+
+    {
+      icon:<Sunset strokeWidth={1} size={58}/>,
+      title: 'Momentos mágicos',
+      description: 'Disfrutaremos de playas salvajes y las preciosas puestas de sol',
+    },
+    {
+      icon:<Heart strokeWidth={1} size={58}/>,
+      title: '¿A qué esperas?',
+      description: 'Te esperamos para que vivas con nosotrx una experiencia única',
+      cta: (
+        <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
+          RESERVA TU PLAZA
+        </WhatsAppLink>
+      )
+    },
+  ];
+
+
+
+
+  // USEFFECT PARA LA FECHA, QUEDAN X DÍAS. 
+  useEffect(() => {
+    const fechaViaje = new Date('2026-04-02');   //Actualizar fecha cuando se cambie el viaje 
+    const hoy = new Date();
+    const diferencia = fechaViaje - hoy;
+    const dias = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
+    setDiasRestantes(dias);
+  }, []);
+
+
+
+
 
   const handleNext = () => {
-    setCurrentStep((prev) => (prev + 1) % steps.length);
+    const nextStep = (currentStep + 1) % steps.length;
+    setCurrentStep(nextStep);
+    
+    // Scroll suave a la siguiente card
+    if (scrollRef.current) {
+      const cardWidth = scrollRef.current.offsetWidth;
+      scrollRef.current.scrollTo({
+        left: cardWidth * nextStep,
+        behavior: 'smooth'
+      });
+    }
   };
+  
+  // Añade también navegación por scroll
+  useEffect(() => {
+    const container = scrollRef.current;
+    
+    const handleScroll = () => {
+      if (container) {
+        const cardWidth = container.offsetWidth;
+        const newStep = Math.round(container.scrollLeft / cardWidth);
+        if (newStep !== currentStep && newStep < steps.length) {
+          setCurrentStep(newStep);
+        }
+      }
+    };
+  
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+    }
+  
+    return () => {
+      if (container) {
+        container.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [currentStep, steps.length]);
 
-  const abrirGaleria = () => {
-    console.log('Click en galería!');
 
-    if (ViajesAnteriores && ViajesAnteriores.length > 0 && ViajesAnteriores[0].imagenes) {
-      setImagenesSeleccionadas(ViajesAnteriores[0].imagenes);
+  const abrirGaleria = (viaje) => {
+    if (viaje && viaje.imagenes) {
+      setImagenesSeleccionadas(viaje.imagenes);
       setShowGaleria(true);
-      console.log('Galería abierta');
     } else {
       console.error('Error: Viajes no tiene el formato esperado');
     }
   };
-
-  const viajeActivo = anteriores[0]?.nombre || "este viaje";
 
   return (
     <>
@@ -72,21 +132,62 @@ const AkaalViajes = () => {
           <img src="/img/azores.jpg" alt="azores" className="viajes-imagen" />
         </ImgContainer>
 
+
         <div className="viajes-intro">
-          <h1 className="viajes-nombre">{viajeActivo}</h1>
+
+          <div className="viajes-intro-nombre">
+            <h1 className="viajes-nombre">{viajeActivo}</h1>
+            <h2 className="viajes-nombre-dos">SAO MIGUEL</h2>
+            <p className="viajes-subtitulo">Practica yoga y conecta con la naturaleza más pura y salvaje</p>
+
+          </div>
+
+          <div className="viajes-contador">
+
+            <p className="viajes-fecha">2-10 ABRIL 2026 </p>
+            <p className="contador-texto">Quedan {diasRestantes} días</p>
+
+          </div>
+
 
           <div className="viajes-intro-buttons">
-            <Button>VER ITINERARIO</Button>
+            <Button style={{ color: 'var(--background)', textAlign: 'start' }} variant='noOutlined'>VER ITINERARIO</Button>
+
             <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
               RESERVA TU PLAZA
             </WhatsAppLink>
+
           </div>
+
+
+
         </div>
+
       </section>
 
-      <section className="viajes-cards">
-        <h1 className="header-viajes">CÓMO NOS ORGANIZAMOS</h1>
 
+
+      <section className="viajes-descripcion">
+        <h1 className="descripcion-titulo">UN VIAJE PARA <br /> DESCONECTAR DE LA RUTINA <br /> Y RECONECTAR CONTIGO
+        </h1>
+        <p className="descripcion-parrafo">Un viaje a São Miguel, en las Azores, para disfrutar de la naturaleza más pura del Atlántico </p>
+        <p className="descripcion-parrafo">Yoga, termas naturales, paisajes volcánicos y una pequeña tribu con la que compartir la experiencia.</p>
+      </section>
+
+
+
+
+
+
+
+
+      <section className="viajes-cards">
+
+        <h1 className="header-viajes">QUÉ VAS A VIVIR EN ESTE VIAJE</h1>
+
+        <div className="cards-scroll-container" >
+
+        <div className="cards-container" ref={scrollRef}>
         <CardViajes
           icon={steps[currentStep].icon}
           title={steps[currentStep].title}
@@ -95,30 +196,23 @@ const AkaalViajes = () => {
           currentStep={currentStep}
           onStepClick={setCurrentStep}
           onNextClick={handleNext}
+          cta={steps[currentStep].cta}
+        
         />
-      </section>
-
-      <section className="viajes-anteriores">
-        <h1 className="viajes-titulo-seccion">VIAJES ANTERIORES</h1>
-        <div className="viajes-galeria">
-          {anteriores.map((ant, id) => (
-            <ViajesGaleria
-              src={ant.portada}
-              nombre={ant.nombre}
-              alt={ant.nombre}
-              key={id}
-              onClick={abrirGaleria}
-            />
-          ))}
+        </div>
         </div>
       </section>
 
-      {showGaleria && (
-        <GaleriaSlider
-          imagenes={imagenesSeleccionadas}
-          onClose={() => setShowGaleria(false)}
-        />
-      )}
+      <section className="viajes-anteriores">
+        <h1 className="anteriores-titulo">EXPERIENCIAS YA VIVIDAS</h1>
+        <ViajesAnterioresGallery/>
+      </section>
+
+    
+
+    
+      
+      
     </>
   );
 };

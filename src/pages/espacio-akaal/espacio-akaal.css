@@ -1,81 +1,120 @@
 
 
+.imagen-provisional{
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.img-prov{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-img);
+  filter: brightness(0.7);
+  opacity: 0.8;
+
+
+}
+
+
+
+.texto-provisional{
+  font-size: 12vw;
+  width: 100%;
+  padding: 1rem;
+  color: var(--background);
+
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 
 
 .akaal-horarios{
-    display: flex;
-    flex-direction: column;
-    margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100dvh;
+  margin-top: 0;
 }
 
 .tipo-clase-dropdown {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 1rem;
-  }
-  
-  .dropdown-toggle {
-    display: flex;
-    align-items: center;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
 width: 100%;
 justify-content: space-between;    cursor: pointer;
-    background: none;
-    padding: 1rem;
-    border: none;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 1rem;
-    background: var(--background);
-    border: 1px solid var(--primary);
-    border-radius: 10px;
-    padding: 0.5rem 0;
-    z-index: 10;
-    min-width: 120px;
-  }
-  
-  .dropdown-item {
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  
-  .dropdown-item:hover,
-  .dropdown-item.activo {
-    background-color: rgba(97, 37, 62, 0.2)
-    ;
-    font-family: semi-bold;
-    padding: 1rem;
-  }
-  
+  background: none;
+  padding: 1rem;
+  border: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 1rem;
+  background: var(--background);
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  z-index: 10;
+  min-width: 120px;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item.activo {
+  background-color: rgba(97, 37, 62, 0.2)
+  ;
+  font-family: semi-bold;
+  padding: 1rem;
+}
+
 
 .calendario{
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
 
 .dia{
-    padding: 1rem;
-    border-radius: 10px;
+  padding: 1rem;
+  border-radius: 10px;
 
 }
 
 
 .seleccionado{
-    background-color: var(--primary);
-    color: var(--background);
+  background-color: var(--primary);
+  color: var(--background);
 }
 
 
 .sin-clases{
-    width: 100%;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,7 +1,3 @@
-
-
-
-
 export const ViajesAnteriores = [
 
 
@@ -13,18 +9,56 @@ export const ViajesAnteriores = [
 
     descripcion: '',
 
-    portada: '/img/azores.png',
+    fecha: '2 Abril 2026',
+
+    portada: '/img/azores1.jpg',
 
     imgFondo: '',
 
     imagenes: [
-
-      'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392297/PXL_20250419_135952663.MP_jzjw0i.jpg', 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392296/PXL_20250425_122248625.MP_vkek3n.jpg', 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392297/IMG-20250508-WA0005_kwhi0i.jpg', 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392297/IMG-20250508-WA0006_iskg0w.jpg', 'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392296/IMG_2928_fkd0tn.jpg'
+      'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392297/PXL_20250419_135952663.MP_jzjw0i.jpg',
+      'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392296/PXL_20250425_122248625.MP_vkek3n.jpg',
+      'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392297/IMG-20250508-WA0005_kwhi0i.jpg',
+      'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392297/IMG-20250508-WA0006_iskg0w.jpg',
+      'https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392296/IMG_2928_fkd0tn.jpg'
     ]
 
   },
 
+
+  {
+    nombre: 'INDIA',
+
+    precio: '€',
+
+    descripcion: '',
+
+    fecha: '15 Mayo 2026',
+
+    portada: '/img/india.jpg',
+
+    imgFondo: '',
+
+    imagenes: [
+      'https://res.cloudinary.com/dnz96cick/image/upload/v1767373992/_MG_9568_hiv1xw.jpg',
+      'https://res.cloudinary.com/dnz96cick/image/upload/v1767373991/IMG_0475_n44okv.jpg',
+      'https://res.cloudinary.com/dnz96cick/image/upload/v1767373990/IMG_0545_eqew7q.jpg',
+      'https://res.cloudinary.com/dnz96cick/image/upload/v1767373992/IMG_0613_jssan0.jpg',
+
+
+
+
+    ]
+
+  },
+
+
+
+
 ]
+
+
+
 
 
 export const horarios = [
@@ -162,3 +196,24 @@ export const horarios = [
 
 
 
+
+
+
+
+export const filtros = [
+
+  {
+    nombre: 'macrame', img: '',
+  },
+
+
+  {
+    nombre: 'plata', img: '',
+  },
+
+
+  {
+    nombre: '', img: '',
+  }
+
+]

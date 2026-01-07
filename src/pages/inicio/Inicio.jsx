@@ -10,11 +10,14 @@ const Inicio = () => {
     return (
         <>
             <ImgContainer>
-                <img src="/img/inicio.jpg" alt="inicio" className="inicio-imagen" />
+                <img src="/img/inicio-manos.jpg" alt="inicio" className="inicio-imagen" />
             </ImgContainer>
 
             <section className='section-inicio'>
-                <h1 className="titulo-section">TRES MANERAS <br /> DE PENSAR EN TI</h1>
+                <div className="titulo-container">
+                    <h1 className="titulo-linea-izquierda">MANERAS DE</h1>
+                    <h1 className="titulo-linea-derecha"> PENSAR EN TI</h1>
+                </div>
 
                 <div className="cards-galeria">
                     {[

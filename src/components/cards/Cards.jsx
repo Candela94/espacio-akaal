@@ -53,28 +53,28 @@ export const CardPedido = ({ producto, onEliminar }) => {
         <div className=" card-pedido">
 
             <div className="imagen-info">
-            <div className="card-img-container-resumen">
-                <img
-                    src={producto.imagen}
-                    alt={producto.nombre}
-                    className="card-img-resumen"
-                />
-            </div>
+                <div className="card-img-container-resumen">
+                    <img
+                        src={producto.imagen}
+                        alt={producto.nombre}
+                        className="card-img-resumen"
+                    />
+                </div>
 
-            <div className="card-info-resumen">
-                <p className="card-name">{producto.nombre}</p>
-                <p className="prize">{producto.precio}</p>
-            </div>
+                <div className="card-info-resumen">
+                    <p className="card-name">{producto.nombre}</p>
+                    <p className="prize">{producto.precio}</p>
+                </div>
 
             </div>
-                <Button
-                    variant="noOutlined"
-                    onClick={ () => onEliminar(producto.id)}
-                    className="btn-eliminar"
-                >
-                    Eliminar
-                </Button>
-            
+            <Button
+                variant="noOutlined"
+                onClick={() => onEliminar(producto.id)}
+                className="btn-eliminar"
+            >
+                Eliminar
+            </Button>
+
         </div>
     );
 };
@@ -117,7 +117,8 @@ export const CardViajes = ({
     totalSteps,
     currentStep,
     onStepClick,
-    onNextClick
+    onNextClick,
+    cta
 }) => {
     return (
 
@@ -129,6 +130,12 @@ export const CardViajes = ({
             <div className="viajes-texto">
                 <h1 className="viajes-h1">{title}</h1>
                 <p className="viajes-description">{description}</p>
+                {cta && (
+                    <div className="viajes-cta">
+                        {cta}
+                    </div>
+                )}
+
             </div>
 
 
@@ -149,6 +156,8 @@ export const CardViajes = ({
                 <Button variant='noOutlined' onClick={onNextClick}>
                     SIG.
                 </Button>
+
+
 
             </div>
         </div>
@@ -182,18 +191,18 @@ export const ViajesGaleria = ({ nombre, src, onClick }) => {
 
 export const CardHorario = ({ nombre, hora, instructor }) => {
     return (
-      <div className="card-horario">
-        <div>
-          <h4 className="clase">{nombre}</h4>
-          <p className="hora">{hora}</p>
+        <div className="card-horario">
+            <div>
+                <h4 className="clase">{nombre}</h4>
+                <p className="hora">{hora}</p>
+            </div>
+            <span className="instructor">{instructor}</span>
         </div>
-        <span className="instructor">{instructor}</span>
-      </div>
     );
-  };
-  
+};
 
-  
+
+
 
 
 

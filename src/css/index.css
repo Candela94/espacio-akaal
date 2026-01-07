@@ -3,6 +3,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: normal, poppins;
+    letter-spacing: 1.5px;
 }
 
 
@@ -10,7 +12,6 @@
 :root{
 
     font-size: clamp(0.875rem, 1.2vw, 1.125rem); /* entre 14px y 18px aprox */
-    font-family: poppins;
     --primary: #61253E;
     --background:#F5EBDE;
     --text: #303030;
@@ -21,7 +22,7 @@
     --border-style: solid;
     --border-color:rgba(97, 37, 62, 0.3);
 
-    --border: var(--border-width)var(--border-style) var(--border-color);
+    --border:var(--border-width) var(--border-style) var(--border-color);
 
     --radius-img: 20px 8px 8px 20px;
 
@@ -46,8 +47,9 @@ body{
     color: var(--primary);
     background-color: var(--background);
     scroll-behavior: smooth;
+    overflow-x: hidden;
 
-    font-family: normal, poppins;
+    
 }
 
 a{
@@ -77,28 +79,43 @@ strong{
 }
 
 
+section{
+    overflow-x: hidden;
+}
+
+
 /* tipografias */
 
 @font-face {
     font-family: superlight;
+ 
     src: url('./fonts/Yaldevi-ExtraLight.ttf');
 }
+
+
 @font-face {
     font-family: light;
+ 
     src: url('./fonts/Yaldevi-Light.ttf');
 }
 
+
 @font-face {
     font-family: medium;
+ 
     src: url('./fonts/Yaldevi-Medium.ttf');
 }
 
+
 @font-face {
     font-family: normal;
+    
     src: url('./fonts/Yaldevi-Regular.ttf');
 }
 
+
 @font-face {
     font-family: semi-bold;
+    
     src: url('./fonts/Yaldevi-SemiBold.ttf');
 }

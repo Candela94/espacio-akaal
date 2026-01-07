@@ -1,16 +1,16 @@
-
-
-
 import { createBrowserRouter } from "react-router";
 import App from "../App";
+
 import Inicio from "../pages/inicio/Inicio";
-import EspacioAkaal from '../pages/espacio-akaal/EspacioAkaal'
-import AkaalRetiros from '../pages/akaal-retiros/AkaalRetiros'
-import AkaalViajes from '../pages/akaal-viajes/AkaalViajes'
+import EspacioAkaal from "../pages/espacio-akaal/EspacioAkaal";
+import AkaalRetiros from "../pages/akaal-retiros/AkaalRetiros";
+import AkaalViajes from "../pages/akaal-viajes/AkaalViajes";
 import UnaVioska from "../pages/una-vioska/Unavioska";
 import About from "../pages/acerca-de/About";
 import DetalleProducto from "../pages/una-vioska/DetalleProducto";
-import ResumenPeido from "../pages/una-vioska/ResumenPedido";
+import ResumenPedido from "../pages/una-vioska/ResumenPedido";
+
+
 
 
 
@@ -26,10 +26,6 @@ const router = createBrowserRouter([{
             element:<Inicio /> 
         },
 
-       
-       
-       
-       
 
         {
             path: "/espacio-akaal",
@@ -67,8 +63,13 @@ const router = createBrowserRouter([{
 
         {
             path:'/resumen-producto',
-            element:<ResumenPeido />
-        }
+            element:<ResumenPedido />
+        },
+
+        // {
+        //     path: "/privacidad",
+        //     element: <Privacidad />
+        // }
         
         
 
