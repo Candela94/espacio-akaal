@@ -156,7 +156,7 @@ export const Header = () => {
                                         POLÍTICA <br /> DE PRIVACIDAD
                                     </NavLink>
 
-                                    <a href="https://instagram.com" target="_blank">
+                                    <a className='icon' href="https://www.instagram.com/espacio.akaal/" target="_blank" style={{color:'var(--background)'}}>
                                         <IoLogoInstagram />
                                     </a>
                                 </div>

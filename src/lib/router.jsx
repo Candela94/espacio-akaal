@@ -9,6 +9,8 @@ import UnaVioska from "../pages/una-vioska/Unavioska";
 import About from "../pages/acerca-de/About";
 import DetalleProducto from "../pages/una-vioska/DetalleProducto";
 import ResumenPedido from "../pages/una-vioska/ResumenPedido";
+import Privacidad from "../pages/privacy/Privacidad";
+import NotFound from "../pages/notFound/NotFound";
 
 
 
@@ -66,10 +68,15 @@ const router = createBrowserRouter([{
             element:<ResumenPedido />
         },
 
-        // {
-        //     path: "/privacidad",
-        //     element: <Privacidad />
-        // }
+        {
+            path: "/privacidad",
+            element: <Privacidad />
+        },
+
+        {
+            path: "*",
+            element: <NotFound />
+        }
         
         
 

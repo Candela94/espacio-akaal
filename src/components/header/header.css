@@ -43,25 +43,25 @@
 /* Menu-header-mobile */
 
 .menu {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
     border: 2px solid var(--background);
     width: 90%;
-    
     border-radius: 50px 10px 10px 50px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    backdrop-filter: blur(20px);
+    background-color: var(--primary);
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-
+  
     position: absolute;
     top: 2px;
     right: 2px;
-
-    transform: translateX(150%);
-    transition: transform 0.4s ease;
-
     z-index: 1001;
-}
+  
+    height: 99.5dvh;
+  }
+  
 
 .menu::before {
     content: '';
@@ -104,11 +104,10 @@
     cursor: pointer;
     text-align: end;
     padding-bottom: 1rem;
-    border-bottom: 0.3px solid var(--primary);
+    border-bottom: 0.3px solid var(--background);
     font-size: 7.5vw;
     transition: scale 0.4s ease;
-    color: var(--primary);
-    font-weight: 600;
+    color: var(--background);
 }
 
 .mobile-services-submenu {
@@ -148,13 +147,17 @@
 
 
 .menu-rrss{
+    
     display: flex;
+    padding: 1.5rem;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 1rem 2rem 1.2rem;
+    
 }
 
-
+.icon{
+    font-size: 1.7rem;
+}
 
 @media (min-width: 1023px) {
 

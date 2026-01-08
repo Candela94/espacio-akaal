@@ -210,7 +210,15 @@ const AkaalViajes = () => {
 
     
 
-    
+    {/* boton flotante */}
+    {currentStep > 0 && (
+  <div className="boton-flotante">
+    <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
+      RESERVA TU PLAZA
+    </WhatsAppLink>
+  </div>
+)}
+
       
       
     </>
