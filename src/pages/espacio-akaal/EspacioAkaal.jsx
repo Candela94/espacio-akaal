@@ -1,13 +1,12 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { horarios } from "../../db/imagenes";
-import { Button } from "../../components/buttons/Button";
 import { CardHorario } from "../../components/cards/Cards";
-import { ChevronDown } from "lucide-react";
 import "./espacio-akaal.css";
 import { ImgContainer } from "../../components/components/Components";
-import { Galeria } from "../../components/galeria/Galeria";
-import { GaleriaSlider } from "../../components/galeria/GaleriaSlider";
+import WhatsAppLink from "../../components/whatsapp-link/WhatsappLink";
+import { espacioAkaalImgs } from "../../db/imagenes";
+import Masonry from "../../components/masonry/Masonry";
 
 const diasSemana = ["LUN.", "MAR.", "MIER.", "JUE.", "VIE."];
 
@@ -19,39 +18,15 @@ const diaCompleto = {
   "VIE.": "Viernes",
 };
 
-const imagenesYoga = [
-  "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&q=80",
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80",
-  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
-  "https://images.unsplash.com/photo-1593896366973-22e0a9883215?w=800&q=80",
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80",
-];
-
 const EspacioAkaal = () => {
-  const [claseSeleccionada, setClaseSeleccionada] = useState(
-    horarios[0].nombre
-  );
+  // Filtrar solo la clase de Yoga
+  const claseYoga = horarios.find((h) => h.nombre === "YOGA");
+
   const [diaSeleccionado, setDiaSeleccionado] = useState(
-    horarios[0].dias[0].dia
+    claseYoga?.dias[0]?.dia || "Lunes"
   );
-  const [mostrarDropdown, setMostrarDropdown] = useState(false);
   const [sliderOpen, setSliderOpen] = useState(false);
   const [sliderInitialIndex, setSliderInitialIndex] = useState(0);
-
-  const dropdownRef = useRef(null);
-
-  const handleSeleccionClase = (nombreClase) => {
-    setClaseSeleccionada(nombreClase);
-
-    const claseElegida = horarios.find((h) => h.nombre === nombreClase);
-    const primerDiaDisponible = claseElegida?.dias[0]?.dia;
-
-    if (primerDiaDisponible) {
-      setDiaSeleccionado(primerDiaDisponible);
-    }
-    setMostrarDropdown(false);
-  };
 
   const handleOpenSlider = (index) => {
     setSliderInitialIndex(index);
@@ -62,103 +37,58 @@ const EspacioAkaal = () => {
     setSliderOpen(false);
   };
 
-  const clase = horarios.find((h) => h.nombre === claseSeleccionada);
-  const dia = clase?.dias.find((d) => d.dia === diaSeleccionado);
+  const dia = claseYoga?.dias.find((d) => d.dia === diaSeleccionado);
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setMostrarDropdown(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const galeriaItems = espacioAkaalImgs.map((img, index) => ({
+    id: `akaal-${index}`,
+    img,
+    height: 300 + Math.floor(Math.random() * 100),
+    url: img,
+    }));
 
   return (
     <>
       <ImgContainer>
-       <div className="imagen-provisional">
-        <img src="/img/yoga.jpg" alt="" className="img-prov" />
-        <p className="texto-provisional">TU MOMENTO  <br />DE PAUSA, <br /> EMPIEZA AQUÍ</p>
-       </div>
+        <div className="imagen-provisional">
+          <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img4_its4nr.png" alt="" className="img-prov" />
+          {/* <p className="texto-provisional">
+            TU MOMENTO <br />
+            DE PAUSA, <br /> EMPIEZA AQUÍ
+          </p> */}
+        </div>
       </ImgContainer>
 
       <section className="akaal-horarios">
-        <h1 className="akaal-titulo">NUESTROS HORARIOS</h1>
-        <p className="akaal-subtitulo">Escucha tu cuerpo, respeta tus límites y disfruta de cada movimiento </p>
-
-        {/* DROPDOWN DE CLASES */}
-        <div className="tipo-clase-dropdown" ref={dropdownRef}>
-          <motion.button
-            className="dropdown-toggle"
-            onClick={() => setMostrarDropdown((prev) => !prev)}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2 }}
-          >
-            <h2 className="clase-titulo">{claseSeleccionada}</h2>
-            <motion.div
-              animate={{ rotate: mostrarDropdown ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <ChevronDown size={18} strokeWidth={1} />
-            </motion.div>
-          </motion.button>
-
-          <AnimatePresence>
-            {mostrarDropdown && (
-              <motion.ul
-                className="dropdown-menu"
-                initial={{ opacity: 0, y: -10, scaleY: 0.8 }}
-                animate={{ opacity: 1, y: 0, scaleY: 1 }}
-                exit={{ opacity: 0, y: -10, scaleY: 0.8 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                style={{ transformOrigin: "top" }}
-              >
-                {horarios.map((h, i) => (
-                  <motion.li
-                    key={i}
-                    onClick={() => handleSeleccionClase(h.nombre)}
-                    className={`dropdown-item ${
-                      h.nombre === claseSeleccionada ? "activo" : ""
-                    }`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.15 }}
-                    whileHover={{ x: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {h.nombre}
-                  </motion.li>
-                ))}
-              </motion.ul>
-            )}
-          </AnimatePresence>
+        <div className="akaal-titulo-subtitulo">
+          <h1 className="akaal-titulo">NUESTROS HORARIOS</h1>
+          <p className="akaal-subtitulo">
+            Escucha tu cuerpo, respeta tus límites y disfruta de cada movimiento
+          </p>
         </div>
+
+        {/* TÍTULO DE LA DISCIPLINA */}
+        {/* <div className="tipo-clase-titulo">
+          <h2 className="clase-titulo">YOGA</h2>
+        </div> */}
 
         {/* DÍAS DE LA SEMANA */}
         <div className="calendario">
           {diasSemana.map((diaAbreviado) => {
             const diaReal = diaCompleto[diaAbreviado];
-            const existeDia = clase?.dias.some((d) => d.dia === diaReal);
 
             return (
-              <motion.div
+              <motion.button
                 key={diaAbreviado}
-                onClick={() => existeDia && setDiaSeleccionado(diaReal)}
-                className={`dia ${
-                  diaReal === diaSeleccionado ? "seleccionado" : ""
-                } ${!existeDia ? "deshabilitado" : ""}`}
-                whileHover={{ scale: existeDia ? 1.05 : 1 }}
-                whileTap={{ scale: existeDia ? 0.95 : 1 }}
+                onClick={() => setDiaSeleccionado(diaReal)}
+                className={`dia ${diaReal === diaSeleccionado ? "seleccionado" : ""
+                  }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
                 layout
               >
                 {diaAbreviado}
-              </motion.div>
+              </motion.button>
             );
           })}
         </div>
@@ -187,7 +117,7 @@ const EspacioAkaal = () => {
                     }}
                   >
                     <CardHorario
-                      nombre={claseSeleccionada}
+                      nombre="YOGA"
                       hora={claseItem.hora}
                       instructor={claseItem.instructor}
                     />
@@ -207,12 +137,22 @@ const EspacioAkaal = () => {
             )}
           </AnimatePresence>
         </div>
+
+        <div className="akaal-button">
+        <WhatsAppLink>MÁS INFORMACIÓN</WhatsAppLink>
+      </div>
       </section>
+
+      
 
       {/* SECCIÓN GALERÍA */}
 
-      
-       
+      <section className="akaal-galeria">
+
+        <h1 className="galeria-titulo">CONOCE <br /> ESPACIO AKAAL</h1>
+      <Masonry items={galeriaItems} />
+
+      </section>
     </>
   );
 };

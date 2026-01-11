@@ -16,6 +16,8 @@ const useFetchProductos = () => {
           imagen: item.imagen,
           imagenes: [item.imagenUno, item.imagenDos],
           filtro: item.filtro,
+          tipo:item.tipo,
+    
           piedra: item.piedra,
         }));
         setProductos(formateados);

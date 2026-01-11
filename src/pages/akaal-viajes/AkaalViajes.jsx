@@ -8,9 +8,9 @@ import { Button } from '../../components/buttons/Button';
 import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
 import { MountainSnow, Backpack, Flower, FishSymbol, Sunset, Heart } from 'lucide-react';
 import { ViajesAnterioresGallery } from '../../components/viajesAnterioresContainer/viajesAnterioresGallery';
+import Masonry from '../../components/masonry/Masonry';
 
-
-const AkaalViajes = () => { 
+const AkaalViajes = () => {
 
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -21,9 +21,20 @@ const AkaalViajes = () => {
   const scrollRef = useRef(null);
 
 
+
+  const galeriaMasonry = [
+    { id: 1, img: '/img/az1.jpg', height: 500 },
+    { id: 2, img: '/img/az2.jpg', height: 400 },
+    { id: 3, img: '/img/az3.jpg', height: 450 }
+   
+  ];
+  
+
+
+
   const steps = [
     {
-      icon: <MountainSnow strokeWidth={1} size={58}/> ,
+      icon: <MountainSnow strokeWidth={1} size={58} />,
       title: 'Conexión con la naturaleza',
       description: 'Lagos volcánicos y termas naturales en el bosque y en el mar.',
     },
@@ -33,23 +44,23 @@ const AkaalViajes = () => {
       description: 'Respira, conecta y empieza el día en calma.',
     },
     {
-      icon:<Backpack strokeWidth={1} size={58}/>,
+      icon: <Backpack strokeWidth={1} size={58} />,
       title: 'Senderismo',
       description: 'Rutas sencillas entre cascadas.',
     },
     {
-      icon: <FishSymbol strokeWidth={1} size={58}/>,
+      icon: <FishSymbol strokeWidth={1} size={58} />,
       title: 'Animales emblemáticos',
       description: 'Iremos en busca de ballenas y delfines para verlos vivir en su hábitat natural.',
     },
 
     {
-      icon:<Sunset strokeWidth={1} size={58}/>,
+      icon: <Sunset strokeWidth={1} size={58} />,
       title: 'Momentos mágicos',
       description: 'Disfrutaremos de playas salvajes y las preciosas puestas de sol',
     },
     {
-      icon:<Heart strokeWidth={1} size={58}/>,
+      icon: <Heart strokeWidth={1} size={58} />,
       title: '¿A qué esperas?',
       description: 'Te esperamos para que vivas con nosotrx una experiencia única',
       cta: (
@@ -60,6 +71,7 @@ const AkaalViajes = () => {
     },
   ];
 
+  const isLastStep = currentStep === steps.length - 1;
 
 
 
@@ -79,7 +91,7 @@ const AkaalViajes = () => {
   const handleNext = () => {
     const nextStep = (currentStep + 1) % steps.length;
     setCurrentStep(nextStep);
-    
+
     // Scroll suave a la siguiente card
     if (scrollRef.current) {
       const cardWidth = scrollRef.current.offsetWidth;
@@ -89,11 +101,11 @@ const AkaalViajes = () => {
       });
     }
   };
-  
+
   // Añade también navegación por scroll
   useEffect(() => {
     const container = scrollRef.current;
-    
+
     const handleScroll = () => {
       if (container) {
         const cardWidth = container.offsetWidth;
@@ -103,11 +115,11 @@ const AkaalViajes = () => {
         }
       }
     };
-  
+
     if (container) {
       container.addEventListener('scroll', handleScroll);
     }
-  
+
     return () => {
       if (container) {
         container.removeEventListener('scroll', handleScroll);
@@ -172,6 +184,13 @@ const AkaalViajes = () => {
         </h1>
         <p className="descripcion-parrafo">Un viaje a São Miguel, en las Azores, para disfrutar de la naturaleza más pura del Atlántico </p>
         <p className="descripcion-parrafo">Yoga, termas naturales, paisajes volcánicos y una pequeña tribu con la que compartir la experiencia.</p>
+
+
+        <div className="viajes-imag">
+          <img src="/img/az2.jpg" alt="viaje" className="viajes-image" />
+    
+
+        </div>
       </section>
 
 
@@ -183,44 +202,50 @@ const AkaalViajes = () => {
 
       <section className="viajes-cards">
 
-        <h1 className="header-viajes">QUÉ VAS A VIVIR EN ESTE VIAJE</h1>
+        <h1 className="header-viajes">QUÉ VAS<br /> A VIVIR  <br />EN ESTE VIAJE</h1>
 
         <div className="cards-scroll-container" >
 
-        <div className="cards-container" ref={scrollRef}>
-        <CardViajes
-          icon={steps[currentStep].icon}
-          title={steps[currentStep].title}
-          description={steps[currentStep].description}
-          totalSteps={steps.length}
-          currentStep={currentStep}
-          onStepClick={setCurrentStep}
-          onNextClick={handleNext}
-          cta={steps[currentStep].cta}
-        
-        />
-        </div>
+          <div className="cards-container" ref={scrollRef}>
+            <CardViajes
+              icon={steps[currentStep].icon}
+              title={steps[currentStep].title}
+              description={steps[currentStep].description}
+              totalSteps={steps.length}
+              currentStep={currentStep}
+              onStepClick={setCurrentStep}
+              onNextClick={handleNext}
+              cta={
+                isLastStep ? (
+                  <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
+                    RESERVA TU PLAZA
+                  </WhatsAppLink>
+                ) : null
+              }
+
+            />
+          </div>
         </div>
       </section>
 
       <section className="viajes-anteriores">
-        <h1 className="anteriores-titulo">EXPERIENCIAS YA VIVIDAS</h1>
-        <ViajesAnterioresGallery/>
+        <h1 className="anteriores-titulo">VIAJES ANTERIORES</h1>
+        <ViajesAnterioresGallery />
       </section>
 
-    
 
-    {/* boton flotante */}
-    {currentStep > 0 && (
-  <div className="boton-flotante">
-    <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
-      RESERVA TU PLAZA
-    </WhatsAppLink>
-  </div>
-)}
 
-      
-      
+      {/* boton flotante */}
+      {/* {currentStep > 0 && (
+        <div className="boton-flotante">
+          <WhatsAppLink message={`¡Hola! Quiero reservar una plaza en el viaje a ${viajeActivo}`}>
+            RESERVA TU PLAZA
+          </WhatsAppLink>
+        </div>
+      )} */}
+
+
+
     </>
   );
 };

@@ -130,7 +130,7 @@ export const CardViajes = ({
             <div className="viajes-texto">
                 <h1 className="viajes-h1">{title}</h1>
                 <p className="viajes-description">{description}</p>
-                {cta && (
+                {cta && cta !== null && (
                     <div className="viajes-cta">
                         {cta}
                     </div>
@@ -196,7 +196,7 @@ export const CardHorario = ({ nombre, hora, instructor }) => {
                 <h4 className="clase">{nombre}</h4>
                 <p className="hora">{hora}</p>
             </div>
-            <span className="instructor">{instructor}</span>
+
         </div>
     );
 };

@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import { useRef, useState } from "react";
 import './css/detalle.css'
 import useFetchProductos from '../../hooks/useFetchProducts';
-
-
+import {HandHeart,} from 'lucide-react'
+import { Button } from "../../components/buttons/Button";
 
 
 const DetalleProducto = () => {
@@ -32,8 +32,30 @@ const producto = productos.find(p => p.id === Number(pid));
         });
     };
 
+
+
+    const seleccionarProducto = () => {
+        // Obtener la lista actual desde localStorage
+        const seleccionActual = JSON.parse(localStorage.getItem("seleccionados")) || [];
+    
+        // Si no está ya seleccionado, lo añadimos
+        if (!seleccionActual.includes(producto.id)) {
+            const nuevaSeleccion = [...seleccionActual, producto.id];
+            localStorage.setItem("seleccionados", JSON.stringify(nuevaSeleccion));
+        }
+    
+        navigate(-1); // Volver a galería
+    };
+    
+
     const navigate = useNavigate();
 
+
+    const handleBack = () => {
+
+        navigate(-1)
+
+    }
 
 
     if (!producto) return null;
@@ -48,7 +70,8 @@ const producto = productos.find(p => p.id === Number(pid));
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
             >
-                <button className="cerrar" onClick={() => navigate(-1)}>✕</button>
+                <button className="cerrar" onClick={handleBack}>✕</button>
+            
 
                 <div className="slider-container">
                     <div className="slider" ref={sliderRef} onScroll={handleScroll}>
@@ -71,7 +94,31 @@ const producto = productos.find(p => p.id === Number(pid));
                 <div className="producto-info">
                     <h2>{producto.nombre}</h2>
                     <p>{producto.descripcion}</p>
-                    <p>{producto.precio} </p>
+                    <h3>{producto.precio} </h3>
+                </div>
+
+
+                <div className="producto-labels">
+                    <div className="label">
+                    <HandHeart strokeWidth={1} />
+
+                        <p className="label-p">Hecho a mano</p>
+                    </div>
+                    <div className="label">
+                        
+                        <p className="label-p"></p>
+                    </div>
+                    <div className="label">
+                        
+                        <p className="label-p"></p>
+                    </div>
+                </div>
+
+
+                <div className="btn-seleccion">
+                <Button onClick={seleccionarProducto}>SELECCIONAR PRODUCTO</Button>
+
+
                 </div>
 
             </motion.div>

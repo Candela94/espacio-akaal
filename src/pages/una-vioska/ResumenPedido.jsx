@@ -73,8 +73,8 @@ const ResumenPedido = () => {
   }
 
   return (
-    <section className="resumen" style={{ paddingTop: '3rem' }}>
-      <h2>RESUMEN DE TU PEDIDO</h2>
+    <section className="resumen" >
+      <h1 className='resumen-titulo'>RESUMEN <br/>DE TU PEDIDO</h1>
 
       {productos.length === 0 ? (
         <>
@@ -106,7 +106,7 @@ const ResumenPedido = () => {
             <div className="resumen-finalizar">
               <input
                 type="text"
-                placeholder="Escribe tu nombre para hacer tu pedido"
+                placeholder="Escribe tu nombre"
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
                 required

@@ -12,7 +12,7 @@ const About = () => {
       title: "El Comienzo",
       content:
         "Soy María, creadora de Espacio AKAAL. Mi camino comenzó estudiando Educación Social, una etapa que culminó en las Islas Azores durante mi Erasmus, y donde posteriormente me quedé para trabajar por primera vez como Educadora.",
-      image: "/img/azores.jpg",
+      image: "/img/azores-maria.jpg",
       icon: <MapPin size={24} />
     },
     {
@@ -21,7 +21,7 @@ const About = () => {
       content:
         "Para costear mis rutas descubrí el macramé. Me recorrí Sudamérica por tierra durante un año y medio, perfeccionando el arte de tejer nudos y engarzar piedras, mientras entendía que la vida podía vivirse de otra manera.",
       image:
-        "https://res.cloudinary.com/dhwd1b4be/image/upload/v1765392297/PXL_20250419_135952663.MP_jzjw0i.jpg",
+        "/img/sudamerica.jpg",
       icon: <Compass size={24} />
     },
     {
@@ -30,7 +30,7 @@ const About = () => {
       content:
         "El yoga llegó a mí como un refugio y una guía en un momento interior muy delicado. Me acompañó durante todo mi viaje latinoamericano, recordándome la importancia de la calma y la presencia.",
       image:
-        "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1000&q=80",
+        "/img/maria-yoga.png",
       icon: <Flower size={24} />
     },
     {
@@ -39,7 +39,7 @@ const About = () => {
       content:
         "Viajé a la India para formarme como profesora de yoga y aprender orfebrería en plata, usando técnicas rústicas y auténticas, casi sin herramientas pero con una enorme pasión por crear con las manos.",
       image:
-        "https://images.unsplash.com/photo-1524492412937-b784a5e9cd3c?auto=format&fit=crop&w=1000&q=80",
+        "/img/maria-yoga-2.png",
       icon: <Heart size={24} />
     },
     {
@@ -48,7 +48,7 @@ const About = () => {
       content:
         "Tras muchos viajes y crecimiento interior, hoy todo ese camino toma forma en Espacio AKAAL: un proyecto que une viaje, yoga, artesanía y crecimiento personal.",
       image:
-        "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1000&q=80",
+        "https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img2_n8gal4.png",
       icon: <Heart size={24} />
     }
   ]

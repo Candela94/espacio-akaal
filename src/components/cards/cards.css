@@ -46,6 +46,10 @@
 }
 
 
+.card-name{
+    width: 80%;
+}
+
 .card-info {
     width: 100%;
 
@@ -115,10 +119,12 @@
 }
 
 .card-text {
-    width: 70%;
+    width: 50%;
 }
 
 
+.btn-icon-only{
+}
 
 
 
@@ -214,6 +220,7 @@
   }
   
 
+  
 
 
 

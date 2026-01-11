@@ -86,7 +86,7 @@
     justify-content: end;
     padding: 1rem;
     cursor: pointer;
-    color: var(--primary);
+    color: var(--background);
     font-weight: 600;
 }
 
@@ -121,10 +121,9 @@
 
 .submenu-item {
     font-size: 5vw;
-    border-bottom: 0.2px solid var(--primary);
+    border-bottom: 0.2px solid var(--background);
     padding-bottom: 0.5rem;
-    color: var(--primary);
-    font-weight: 600;
+    color: var(--background);
 }
 
 .menu-li:active {

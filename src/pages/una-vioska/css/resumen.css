@@ -1,6 +1,18 @@
 
 
+.resumen{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100dvh;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 4rem;
+}
 
+.resumen-titulo{
+    font-size: 10vw;
+}
 
 
 .no-seleccionados{
@@ -52,7 +64,7 @@
     background: none;
     border: none;
     border-bottom: var(--border);
-    width: 70%;
+    width: 65%;
 }
 
 .input-nombre:focus{

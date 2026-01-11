@@ -104,94 +104,47 @@ export const horarios = [
       }
     ]
   },
-  {
-    nombre: 'PILATES',
-    dias: [
-      {
-        dia: 'Martes',
-        clases: [
-          { hora: '8:15 - 9:15', instructor: 'Laura' }
-        ]
-      },
-      {
-        dia: 'Jueves',
-        clases: [
-          { hora: '8:15 - 9:15', instructor: 'Laura' }
-        ]
-      }
-    ]
-  },
-  {
-    nombre: 'TERAPIAS HOLÍSTICAS',
-    dias: [
-      {
-        dia: 'Lunes',
-        clases: [
-          { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
-        ]
-      },
-      {
-        dia: 'Martes',
-        clases: [
-          { hora: '11:30 - 12:45', instructor: 'Equipo terapéutico' },
-          { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
-        ]
-      },
-      {
-        dia: 'Miércoles',
-        clases: [
-          { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
-        ]
-      },
-      {
-        dia: 'Jueves',
-        clases: [
-          { hora: '11:30 - 12:45', instructor: 'Equipo terapéutico' },
-          { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
-        ]
-      },
-      {
-        dia: 'Viernes',
-        clases: [
-          { hora: '11:30 - 12:45', instructor: 'Equipo terapéutico' },
-          { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
-        ]
-      }
-    ]
-  },
-  {
-    nombre: 'MEDITACIÓN',
-    dias: [
-      {
-        dia: 'Martes',
-        clases: [
-          { hora: '19:30 - 20:00', instructor: 'Carla' }
-        ]
-      }
-    ]
-  },
-  {
-    nombre: 'BIODANZA',
-    dias: [
-      {
-        dia: 'Jueves',
-        clases: [
-          { hora: '19:30 - 21:30', instructor: 'Valeria' }
-        ]
-      }
-    ]
-  },
-  {
-    nombre: 'ACTIVIDADES CONSCIENTES',
-    dias: [
-      {
-        dia: 'Viernes',
-        clases: [
-          { hora: '19:30 - 21:30', instructor: 'Equipo Akaal' }
-        ]
-      }
-    ]
-  }
+
+  // {
+  //   nombre: 'TERAPIAS HOLÍSTICAS',
+  //   dias: [
+  //     {
+  //       dia: 'Lunes',
+  //       clases: [
+  //         { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
+  //       ]
+  //     },
+  //     {
+  //       dia: 'Martes',
+  //       clases: [
+  //         { hora: '11:30 - 12:45', instructor: 'Equipo terapéutico' },
+  //         { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
+  //       ]
+  //     },
+  //     {
+  //       dia: 'Miércoles',
+  //       clases: [
+  //         { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
+  //       ]
+  //     },
+  //     {
+  //       dia: 'Jueves',
+  //       clases: [
+  //         { hora: '11:30 - 12:45', instructor: 'Equipo terapéutico' },
+  //         { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
+  //       ]
+  //     },
+  //     {
+  //       dia: 'Viernes',
+  //       clases: [
+  //         { hora: '11:30 - 12:45', instructor: 'Equipo terapéutico' },
+  //         { hora: '13:00 - 14:30', instructor: 'Equipo terapéutico' }
+  //       ]
+  //     }
+  //   ]
+  // },
+ 
+ 
 ];
 
 
@@ -215,5 +168,22 @@ export const filtros = [
   {
     nombre: '', img: '',
   }
+
+]
+
+
+export const espacioAkaalImgs = [
+
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img2_n8gal4.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img1_t3om3r.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img4_its4nr.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img5_mc6mw7.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img6_yqjara.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img7_zfajoi.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1768034681/img9_ieybnn.png',
+  'https://res.cloudinary.com/dhwd1b4be/image/upload/v1768034551/img8_lzki0q.png'
+
+
+
 
 ]

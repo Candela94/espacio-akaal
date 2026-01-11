@@ -41,7 +41,7 @@ const pasosInstrucciones = [
         icono: <ShoppingCart strokeWidth={1} />,
         texto: (
             <>
-                Pulsando  <strong>"Ver pedido"</strong>, verás el resumen de tu pedido
+                Pulsando  <strong>"Ver pedido"</strong>, verás el resumen de tus productos seleccionados.
             </>
         ),
 
@@ -50,7 +50,7 @@ const pasosInstrucciones = [
         icono: <MessageCircleMore strokeWidth={1} />,
         texto: (
             <>
-                <strong>"Escribe tu nombre"</strong> para conocerte mejor y contáctanos directamente por WhatsApp para reservar tu pedido
+                <strong>"Escribe tu nombre"</strong> para conocerte mejor y contáctanos directamente por WhatsApp para reservar tus joyas.
             </>
         ),
         texto: 'Desde ahí, escribe tu nombre para conocerte mejor y contáctanos directamente por WhatsApp para reservar tu pedido',
@@ -59,18 +59,24 @@ const pasosInstrucciones = [
         icono: <HandHeart strokeWidth={1} />,
         texto: (
             <>
-                Recuerda que todo es <strong>"100% artesanal"</strong> , por lo que te llevarás <strong>una pieza única</strong>
+                Recuerda que todo es <strong>"100% artesanal"</strong> , por lo que te llevarás <strong>una pieza única.</strong>
             </>
         ),
 
     },
 ];
 
+
+
+
+
 const UnaVioska = () => {
     const [modoSeleccion, setModoSeleccion] = useState(false);
     const [seleccionados, setSeleccionados] = useState([]);
     const [menu, setMenu] = useState(false);
     const [filtroActivo, setFiltroActivo] = useState("todo");
+    const [tipoActivo, setTipoActivo] = useState("todo");
+
     const menuRef = useRef(null);
 
     const productos = useFetchProductos();
@@ -99,26 +105,63 @@ const UnaVioska = () => {
         };
     }, [menu]);
 
-    const handleSeleccion = (id) => {
-        if (seleccionados.includes(id)) {
-            setSeleccionados(seleccionados.filter(item => item !== id));
-        } else {
-            setSeleccionados([...seleccionados, id]);
-        }
-    };
+    useEffect(() => {
+        const seleccionGuardada = JSON.parse(localStorage.getItem("seleccionados")) || [];
+        setSeleccionados(seleccionGuardada);
 
-    const borrarSeleccion = () => setSeleccionados([]);
+        if (seleccionGuardada.length > 0) {
+            setModoSeleccion(true); // 💡 Activa el modo selección si hay algo guardado
+        }
+    }, []);
+
+
+    const handleSeleccion = (id) => {
+        let nuevaSeleccion;
+        if (seleccionados.includes(id)) {
+            nuevaSeleccion = seleccionados.filter(item => item !== id);
+        } else {
+            nuevaSeleccion = [...seleccionados, id];
+        }
+        setSeleccionados(nuevaSeleccion);
+        localStorage.setItem("seleccionados", JSON.stringify(nuevaSeleccion));
+    };
+    
+
+
+
+
+    const borrarSeleccion = () => {
+        setSeleccionados([]);
+        localStorage.removeItem("seleccionados");
+    };
+    
+
 
     const handleMenu = () => setMenu(!menu);
+
+  
+    
+
 
     const handleFiltro = (filtro) => {
         setFiltroActivo(filtro);
         setMenu(false);
     };
 
+    const handleTipo = (tipo) => {
+        setTipoActivo(tipo);
+        setMenu(false);
+    };
+
+
+
+
+
     const productosFiltrados = productos.filter(producto =>
-        filtroActivo === "todo" ? true : producto.filtro === filtroActivo
+        (filtroActivo === "todo" || producto.filtro === filtroActivo) &&
+        (tipoActivo === "todo" || producto.tipo === tipoActivo)
     );
+
 
     const irAResumen = () => {
         const productosSeleccionados = productos.filter(producto =>
@@ -144,7 +187,7 @@ const UnaVioska = () => {
             <ImgContainer>
                 <img src="/img/colgante-mb.png" alt="colgante" className="vioska-portada" />
                 <div className="vioska-info">
-                    <h1 className="vioska-titulo">ARTESANÍA HECHA CON AMOR</h1>
+                    {/* <h1 className="vioska-titulo">ARTESANÍA HECHA CON PROPÓSITO</h1> */}
                 </div>
             </ImgContainer>
 
@@ -191,12 +234,18 @@ const UnaVioska = () => {
                     </div>
 
                     <div className="filtros" ref={menuRef}>
-                        <p onClick={handleMenu} className="filtros-texto">FILTRAR</p>
+                        <p onClick={handleMenu} className="filtros-texto">
+                            FILTRAR{(filtroActivo !== "todo" || tipoActivo !== "todo") && ` · ${filtroActivo !== "todo" ? filtroActivo : ""}${(filtroActivo !== "todo" && tipoActivo !== "todo") ? " / " : ""}${tipoActivo !== "todo" ? tipoActivo : ""}`}
+                        </p>
+
                         {menu && (
                             <ul className="filtro-ul">
-                                <li className="filtro-li" onClick={() => handleFiltro("todo")}>TODO</li>
-                                <li className="filtro-li" onClick={() => handleFiltro("macrame")}>MACRAMÉ</li>
-                                <li className="filtro-li" onClick={() => handleFiltro("plata")}>PLATA</li>
+                                <li className="filtro-li" onClick={() => handleTipo("todo")}>TODO</li>
+                                <li className="filtro-li" onClick={() => handleTipo("pendientes")}>PENDIENTES</li>
+                                <li className="filtro-li" onClick={() => handleTipo("colgantes")}>COLGANTES</li>
+                                <li className="filtro-li" onClick={() => handleTipo("anillos")}>ANILLOS</li>
+                                {/* <li className="filtro-li" onClick={() => handleFiltro("macrame")}>MACRAMÉ</li>
+                                <li className="filtro-li" onClick={() => handleFiltro("plata")}>PLATA</li> */}
                             </ul>
                         )}
                     </div>

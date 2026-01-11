@@ -99,6 +99,7 @@
     position: sticky;
     top: 0;
     z-index: 10;
+    background-color: var(--background);
   
     padding: 1rem 0;
     display: flex;
@@ -157,7 +158,7 @@
   
   .filtro-ul {
     position: absolute;
-    width: 30%;
+    width: 45%;
     border-radius: 20px;
     top: 100%;
     left: 0;
@@ -189,8 +190,16 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     margin-bottom: 6rem;
+    width: 100%;
+    height: 70vh;
+    overflow-y: auto;
 }
 
+
+.productos::-webkit-scrollbar{
+    background-color: var(--primary);
+    width: 0.5px;
+}
 
 .pedido-footer {
     position: fixed;

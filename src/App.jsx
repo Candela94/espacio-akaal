@@ -2,11 +2,11 @@
 
 
 import { Outlet, useLocation } from "react-router"
-import { ProductCard } from "./components/cards/Cards"
-import './css/index.css'
-import { Button } from "./components/buttons/Button"
-import { Header } from "./components/header/Header"
 
+import './css/index.css'
+
+import { Header } from "./components/header/Header"
+import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
    <Header/>
     
    <Outlet context={{ background: state?.background }} />    
+   <ScrollToTop />
      
     </>
   )

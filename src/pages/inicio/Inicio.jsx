@@ -10,7 +10,7 @@ const Inicio = () => {
     return (
         <>
             <ImgContainer>
-                <img src="/img/inicio-manos.jpg" alt="inicio" className="inicio-imagen" />
+                <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1768034551/img8_lzki0q.png" alt="inicio" className="inicio-imagen" />
             </ImgContainer>
 
             <section className='section-inicio'>

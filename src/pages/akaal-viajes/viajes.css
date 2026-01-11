@@ -88,11 +88,28 @@
 
 .viajes-descripcion{
     width: 100%;
-    height: 50dvh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
     margin-top: 1rem;
     padding: 1rem;
+}
+
+
+.viajes-imag{
+  width: 100%;
+  height: 50vh;
+  margin-top: 1rem;
+}
+
+
+.viajes-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 
@@ -107,6 +124,7 @@
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1rem;
     
    
@@ -143,6 +161,7 @@
     height: 100dvh;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 
 }
 
@@ -172,6 +191,13 @@
   .boton-flotante a:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+
+
+
+  .anteriores-titulo{
+    font-size: 12vw;
+    margin-bottom: 1rem;
   }
   
   @keyframes fadeIn {
