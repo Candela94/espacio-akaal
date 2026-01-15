@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '../../components/buttons/Button';
 import WhatsAppLink from '../../components/whatsapp-link/WhatsappLink';
 import { useNavigate } from 'react-router';
+import { ArrowLeft } from 'lucide-react';
 
 const ResumenPedido = () => {
   const location = useLocation();
@@ -74,6 +75,11 @@ const ResumenPedido = () => {
 
   return (
     <section className="resumen" >
+
+
+      <div className="resumen-back">
+      <ArrowLeft strokeWidth={1} onClick={handleVolver}/>
+      </div>
       <h1 className='resumen-titulo'>RESUMEN <br/>DE TU PEDIDO</h1>
 
       {productos.length === 0 ? (

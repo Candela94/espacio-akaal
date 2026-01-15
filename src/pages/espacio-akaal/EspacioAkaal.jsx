@@ -51,10 +51,9 @@ const EspacioAkaal = () => {
       <ImgContainer>
         <div className="imagen-provisional">
           <img src="https://res.cloudinary.com/dhwd1b4be/image/upload/v1767985131/img4_its4nr.png" alt="" className="img-prov" />
-          {/* <p className="texto-provisional">
-            TU MOMENTO <br />
-            DE PAUSA, <br /> EMPIEZA AQUÍ
-          </p> */}
+          <h1 className="texto-provisional">
+           ESPACIO <br /> AKAAL
+          </h1>
         </div>
       </ImgContainer>
 

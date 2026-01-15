@@ -4,7 +4,7 @@
     object-fit: cover;
     border-radius: var(--radius-img);
     opacity: 0.9;
-    filter: brightness(0.8);
+    filter: brightness(0.7);
     padding: 0.2rem;
 }
 
@@ -22,7 +22,8 @@
 
 .vioska-titulo {
     color: var(--background);
-    font-size: 9vw;
+    font-size: 13vw;
+    text-align: center;
 
 }
 

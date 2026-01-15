@@ -41,7 +41,7 @@ export const Header = () => {
                 {/* NAV MOBILE */}
                 <nav className="header-mobile-nav">
                     <NavLink to="/">
-                        <img src="/img/logo-icono.png" alt="logo" className="header-logo" />
+                        <img src="/img/logo.png" alt="logo" className="header-logo" />
                     </NavLink>
                     <span className="header-menu" onClick={handleOpenMenu}>MENÚ</span>
                 </nav>
@@ -135,6 +135,18 @@ export const Header = () => {
                                                 >
                                                     <NavLink to="/akaal-retiros">AKAAL RETIROS</NavLink>
                                                 </motion.li>
+
+                                                <motion.li 
+                                                    className="menu-li submenu-item" 
+                                                    onClick={() => { setMenu(false); setOpenMobileServices(false); }}
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ duration: 0.3, delay: 0.2 }}
+                                                    whileHover={{ x: 5 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                >
+                                                    <NavLink to="/gong">BAÑOS DE GONG</NavLink>
+                                                </motion.li>
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
@@ -149,14 +161,25 @@ export const Header = () => {
                                         <NavLink to="/about">ACERCA DE</NavLink>
                                     </motion.li>
 
+                                    <motion.li 
+                                        className="menu-li" 
+                                        onClick={() => setMenu(false)}
+                                        whileHover={{ x: 5 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        transition={{ duration: 0.2 }}
+                                    >
+                                        <NavLink to="/contacto">CONTACTO</NavLink>
+                                    </motion.li>
+
+
                                 </ul>
 
                                 <div className="menu-rrss">
-                                    <NavLink to="/privacidad" className="menu-privacy">
+                                    <NavLink to="/privacidad" className="menu-privacy"  onClick={() => setMenu(false)}>
                                         POLÍTICA <br /> DE PRIVACIDAD
                                     </NavLink>
 
-                                    <a className='icon' href="https://www.instagram.com/espacio.akaal/" target="_blank" style={{color:'var(--background)'}}>
+                                    <a className='icon' href="https://www.instagram.com/espacio.akaal/" target="_blank" style={{color:'var(--background)'}}  onClick={() => setMenu(false)}>
                                         <IoLogoInstagram />
                                     </a>
                                 </div>

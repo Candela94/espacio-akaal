@@ -64,11 +64,13 @@ const About = () => {
       {/* HERO */}
       <section className="hero-section">
         <div className="hero-image">
-          <img src="/img/azores.jpg" alt="Espacio AKAAL" />
+          <img src="/img/manos.png" alt="Espacio AKAAL" className='image-hero'/>
           <div className="hero-overlay">
             <div className="hero-content">
-              <span className="hero-date">Desde 2013</span>
-              <h1 className="hero-title">Un Viaje Interior</h1>
+
+           <h1 className="titulo-hero">UN VIAJE INTERIOR</h1>
+              {/* <span className="hero-date">Desde 2013</span> */}
+            
             </div>
           </div>
         </div>

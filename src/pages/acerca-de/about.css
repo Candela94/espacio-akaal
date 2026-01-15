@@ -21,6 +21,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: blur(4px) grayscale(0.5) brightness(0.7);
 }
 
 .hero-overlay {
@@ -34,8 +35,10 @@
 }
 
 .hero-content {
-    text-align: right;
-    color: var(--background);
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    color: var(--primary);
     max-width: 600px;
 }
 
@@ -43,20 +46,16 @@
     display: block;
     font-size: 1.2rem;
     font-weight: 300;
-    letter-spacing: 0.1em;
+   
     margin-bottom: 0.5rem;
     opacity: 0.9;
     font-family: light, poppins;
 }
 
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.1;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    font-family: semi-bold, poppins;
-    color: var(--background);
+.titulo-hero{
+    font-size: 16vw;
+    color: var(--background) ;
+    text-align: center;
 }
 
 /* Timeline Section */

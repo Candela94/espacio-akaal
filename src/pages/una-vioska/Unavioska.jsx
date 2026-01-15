@@ -187,7 +187,7 @@ const UnaVioska = () => {
             <ImgContainer>
                 <img src="/img/colgante-mb.png" alt="colgante" className="vioska-portada" />
                 <div className="vioska-info">
-                    {/* <h1 className="vioska-titulo">ARTESANÍA HECHA CON PROPÓSITO</h1> */}
+                    <h1 className="vioska-titulo">UNA VIOSKA.</h1>
                 </div>
             </ImgContainer>
 

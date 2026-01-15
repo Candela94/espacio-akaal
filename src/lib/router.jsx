@@ -11,6 +11,8 @@ import DetalleProducto from "../pages/una-vioska/DetalleProducto";
 import ResumenPedido from "../pages/una-vioska/ResumenPedido";
 import Privacidad from "../pages/privacy/Privacidad";
 import NotFound from "../pages/notFound/NotFound";
+import Gong from "../pages/gong/Gong";
+import Contacto from "../pages/contacto/Contacto";
 
 
 
@@ -71,6 +73,16 @@ const router = createBrowserRouter([{
         {
             path: "/privacidad",
             element: <Privacidad />
+        },
+
+        {
+            path: "/gong",
+            element: <Gong />
+        },
+
+        {
+            path: "/contacto",
+            element: <Contacto />
         },
 
         {

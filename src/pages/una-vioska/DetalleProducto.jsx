@@ -98,7 +98,7 @@ const producto = productos.find(p => p.id === Number(pid));
                 </div>
 
 
-                <div className="producto-labels">
+                {/* <div className="producto-labels">
                     <div className="label">
                     <HandHeart strokeWidth={1} />
 
@@ -112,7 +112,7 @@ const producto = productos.find(p => p.id === Number(pid));
                         
                         <p className="label-p"></p>
                     </div>
-                </div>
+                </div> */}
 
 
                 <div className="btn-seleccion">
